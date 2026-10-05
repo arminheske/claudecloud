@@ -10,8 +10,16 @@
  *   });
  *   game.destroy();  // räumt DOM und Tastatur-Listener auf
  *
- * vocab: mind. 3 Einträge, difficulty 1 (leicht) bis 3 (schwer):
- * schwere Wörter geben mehr Boost, bestrafen Fehler aber auch härter.
+ * vocab: mind. 3 Einträge { id, word, translation }. `difficulty` (1-3) ist optional.
+ *
+ * Schwierigkeit: Schwere Wörter geben mehr Boost, bestrafen Fehler aber auch härter.
+ * Da Sets selbst eingetragen werden, wird sie geschätzt:
+ *   1. Startwert: `difficulty`, falls angegeben, sonst nach Länge von Wort/Übersetzung
+ *      im Vergleich zum restlichen Set (je ein Drittel leicht / mittel / schwer).
+ *   2. Anpassung an echte Antworten: oft falsch -> eine Stufe schwerer,
+ *      sicher gewusst -> eine Stufe leichter.
+ * Den Verlauf liefert onFinish als `history` ({ [id]: { seen, wrong } }); wird er beim
+ * nächsten Start als `history` übergeben, lernt die Schätzung über Spiele hinweg.
  * Die Spiellogik (WordRace.createEngine) ist unabhängig vom DOM und testbar.
  */
 (function (root, factory) {
@@ -41,9 +49,38 @@
   }
 
   function createEngine(opts) {
-    var vocab = opts.vocab || [];
+    var vocab = (opts.vocab || []).map(function (v, i) {
+      return { id: v.id != null ? v.id : i, word: v.word, translation: v.translation, difficulty: v.difficulty };
+    });
     var rng = opts.rng || Math.random;
     if (vocab.length < 3) throw new Error('WordRace: mindestens 3 Vokabeln nötig');
+
+    var history = {};
+    var given = opts.history || {};
+    Object.keys(given).forEach(function (k) {
+      history[k] = { seen: given[k].seen || 0, wrong: given[k].wrong || 0 };
+    });
+
+    // Startschätzung nach Länge, relativ zum Set (Rang -> Drittel)
+    var startLevel = {};
+    vocab
+      .map(function (v) {
+        var extraWords = v.word.trim().split(/\s+/).length - 1;
+        return { id: v.id, score: Math.max(v.word.length, v.translation.length) + 3 * extraWords };
+      })
+      .sort(function (a, b) { return a.score - b.score; })
+      .forEach(function (x, rank) { startLevel[x.id] = 1 + Math.floor(rank * 3 / vocab.length); });
+
+    function difficultyOf(v) {
+      var d = v.difficulty >= 1 && v.difficulty <= 3 ? Math.round(v.difficulty) : startLevel[v.id];
+      var h = history[v.id];
+      if (h && h.seen >= 3) {
+        var rate = h.wrong / h.seen;
+        if (rate >= 0.5) d = Math.min(3, d + 1);
+        else if (rate === 0) d = Math.max(1, d - 1);
+      }
+      return d;
+    }
 
     var state = { status: 'ready', winner: null, time: 0, events: [], players: [] };
 
@@ -63,7 +100,7 @@
       var options = shuffle([w.translation].concat(distractors), rng);
       p.question = {
         id: w.id, word: w.word, options: options,
-        correctIndex: options.indexOf(w.translation), difficulty: w.difficulty || 2,
+        correctIndex: options.indexOf(w.translation), difficulty: difficultyOf(w),
       };
     }
 
@@ -100,6 +137,9 @@
       if (state.status !== 'running') return null;
       var p = state.players[i], q = p.question, r = DIFFICULTY[q.difficulty];
       var correct = optionIndex === q.correctIndex;
+      var h = history[q.id] || (history[q.id] = { seen: 0, wrong: 0 });
+      h.seen++;
+      if (!correct) h.wrong++;
       if (correct) {
         p.correct++;
         p.speed = Math.min(MAX_SPEED, p.speed + r.boost);
@@ -142,13 +182,17 @@
       }
     }
 
+    function getHistory() {
+      return JSON.parse(JSON.stringify(history));
+    }
+
     function drainEvents() {
       var e = state.events; state.events = []; return e;
     }
 
     return {
       state: state, start: start, tick: tick, answer: answer,
-      drainEvents: drainEvents, TRACK_LENGTH: TRACK_LENGTH, DIFFICULTY: DIFFICULTY,
+      drainEvents: drainEvents, getHistory: getHistory, TRACK_LENGTH: TRACK_LENGTH, DIFFICULTY: DIFFICULTY,
     };
   }
 
@@ -316,7 +360,7 @@
       overlay.firstChild.textContent = text + '\n' + stats.map(function (st, i) {
         return NAMES[i] + ': ' + st.correct + ' richtig, ' + st.wrong + ' falsch';
       }).join('\n');
-      if (opts.onFinish) opts.onFinish({ winner: s.winner, stats: stats });
+      if (opts.onFinish) opts.onFinish({ winner: s.winner, stats: stats, history: engine.getHistory() });
     }
 
     function loop(now) {

@@ -87,6 +87,40 @@ const wrong = (e, i) => e.answer(i, (e.state.players[i].question.correctIndex + 
   assert.strictEqual(e.state.winner, 0);
   assert.strictEqual(e.answer(1, 0), null);
 }
+// Ohne difficulty: Schätzung nach Länge, immer eine Mischung aus allen Stufen
+{
+  const plain = ['cat', 'dog', 'house', 'water', 'to borrow', 'journey', 'reluctant', 'to endeavour', 'ubiquitous']
+    .map((w, i) => ({ id: i, word: w, translation: 'T' + 'x'.repeat(i) }));
+  const seen = new Set();
+  const e = WR.createEngine({ vocab: plain }); e.start();
+  const p = e.state.players[0];
+  for (let t = 0; t < 300; t++) { seen.add(p.question.difficulty); wrong(e, 0); }
+  assert.deepStrictEqual([...seen].sort(), [1, 2, 3]);
+  // gleich lange Wörter -> trotzdem Mischung
+  const same = ['a', 'b', 'c', 'd', 'e', 'f'].map((w, i) => ({ id: i, word: w, translation: w.toUpperCase() }));
+  const e2 = WR.createEngine({ vocab: same }); e2.start();
+  const seen2 = new Set();
+  for (let t = 0; t < 300; t++) { seen2.add(e2.state.players[0].question.difficulty); wrong(e2, 0); }
+  assert.strictEqual(seen2.size, 3);
+}
+// Verlauf: oft falsch -> schwerer, immer richtig -> leichter; History wird geliefert
+{
+  const v = [1, 2, 3].map((i) => ({ id: i, word: 'w' + i, translation: 'T' + i, difficulty: 2 }));
+  const e = WR.createEngine({ vocab: v, history: { 1: { seen: 4, wrong: 3 }, 2: { seen: 5, wrong: 0 } } });
+  e.start();
+  const levels = {};
+  const p = e.state.players[0];
+  for (let t = 0; t < 100; t++) { if (!(p.question.id in levels)) levels[p.question.id] = p.question.difficulty; wrong(e, 0); }
+  assert.strictEqual(levels[1], 3); assert.strictEqual(levels[2], 1);
+  const h = e.getHistory();
+  assert.ok(h[3].seen > 0 && h[3].wrong === h[3].seen);
+  h[3].seen = 0; assert.ok(e.getHistory()[3].seen > 0, 'getHistory liefert eine Kopie');
+}
+// Ohne id: Index wird als id verwendet
+{
+  const e = WR.createEngine({ vocab: [{ word: 'a', translation: 'A' }, { word: 'b', translation: 'B' }, { word: 'c', translation: 'C' }] });
+  e.start(); assert.ok(typeof e.state.players[0].question.id === 'number');
+}
 // Zu wenig Vokabeln -> Fehler
 assert.throws(() => WR.createEngine({ vocab: vocab.slice(0, 2) }));
 console.log('alle Tests ok');
