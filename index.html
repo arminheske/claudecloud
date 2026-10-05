@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Word Race – Demo</title>
+</head>
+<body style="margin:0;padding:16px;background:#f4f4f8">
+  <h1 style="text-align:center;font-family:system-ui,sans-serif">🏎️ Word Race</h1>
+  <p style="text-align:center;font-family:system-ui,sans-serif">
+    Spieler 1: Tasten <b>1 2 3</b>, Risiko <b>Q</b> &nbsp;|&nbsp; Spieler 2: Tasten <b>8 9 0</b>, Risiko <b>P</b>
+  </p>
+  <div id="game"></div>
+
+  <script src="wordrace.js"></script>
+  <script>
+    // Beispiel-Vokabeln – in der Plattform durch den echten Wortschatz ersetzen.
+    var vocab = [
+      { id: 1,  word: 'cat',        translation: 'Katze',       difficulty: 1 },
+      { id: 2,  word: 'dog',        translation: 'Hund',        difficulty: 1 },
+      { id: 3,  word: 'house',      translation: 'Haus',        difficulty: 1 },
+      { id: 4,  word: 'water',      translation: 'Wasser',      difficulty: 1 },
+      { id: 5,  word: 'to borrow',  translation: 'ausleihen',   difficulty: 2 },
+      { id: 6,  word: 'journey',    translation: 'Reise',       difficulty: 2 },
+      { id: 7,  word: 'tired',      translation: 'müde',        difficulty: 2 },
+      { id: 8,  word: 'to achieve', translation: 'erreichen',   difficulty: 2 },
+      { id: 9,  word: 'reluctant',  translation: 'widerwillig', difficulty: 3 },
+      { id: 10, word: 'ubiquitous', translation: 'allgegenwärtig', difficulty: 3 },
+      { id: 11, word: 'to endeavour', translation: 'bestreben', difficulty: 3 },
+      { id: 12, word: 'scarcity',   translation: 'Knappheit',   difficulty: 3 },
+    ];
+    WordRace.create(document.getElementById('game'), {
+      vocab: vocab,
+      onAnswer: function (r) { console.log('answer', r); },
+      onFinish: function (r) { console.log('finish', r); },
+    });
+  </script>
+</body>
+</html>
