@@ -1,0 +1,15 @@
+{
+  "name": "wordrace",
+  "version": "1.0.0",
+  "description": "Word Race - Vokabel-Klassenspiel (Lehrer-Ansicht + SchülerInnen per Code)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test/engine.test.js && node test/server.test.js"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  },
+  "license": "UNLICENSED",
+  "private": true
+}

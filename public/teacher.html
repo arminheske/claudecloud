@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Word Race – Lehrkraft</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { overflow: hidden; }
+    #app { height: 100vh; display: flex; flex-direction: column; }
+
+    /* Einrichtung */
+    #setup { overflow: auto; padding: 24px; }
+    #setup .wrap { max-width: 760px; margin: 0 auto; }
+    #setup h1 { margin: 0 0 4px; }
+    #setup textarea { min-height: 220px; font-family: ui-monospace, Menlo, monospace; resize: vertical; }
+    .opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 0 16px; }
+    .check { display: flex; gap: 10px; align-items: center; margin-top: 14px; color: var(--text); }
+    .check input { width: 20px; height: 20px; }
+
+    /* Lobby */
+    #lobby { padding: 24px 40px; overflow: auto; }
+    .bigcode {
+      font-size: clamp(4rem, 14vw, 11rem); font-weight: 900; letter-spacing: .12em;
+      color: var(--accent); line-height: 1; margin: 8px 0;
+    }
+    .joinurl { font-size: clamp(1.1rem, 2.5vw, 2rem); color: var(--muted); }
+    .joinurl b { color: var(--text); }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 22px 0; max-width: 1200px; }
+    .chip { background: var(--panel2); border-radius: 999px; padding: 8px 16px; font-size: 1.2rem; display: flex; gap: 8px; align-items: center; }
+    .chip.off { opacity: .45; }
+    .chip button { padding: 0 6px; background: none; color: var(--muted); font-size: 1rem; }
+    #startBtn { font-size: 1.6rem; padding: 16px 48px; }
+
+    /* Rennen */
+    #race { padding: 12px 20px 16px; --rh: 24px; }
+    .bar { display: flex; align-items: center; gap: 20px; padding: 4px 4px 10px; }
+    .bar .code { font-size: 1.6rem; font-weight: 900; color: var(--accent); letter-spacing: .1em; }
+    .bar .timer { font-size: 2.4rem; font-weight: 800; font-variant-numeric: tabular-nums; margin-left: auto; }
+    .bar .hint { color: var(--muted); }
+    #lanes { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 3px; }
+    .lane { flex: 1 1 0; min-height: 0; display: flex; align-items: center; gap: 10px; font-size: calc(var(--rh) * .62); }
+    .lane .name { width: 11em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: right; }
+    .lane .rank { width: 2.2em; text-align: center; font-weight: 800; color: var(--accent); }
+    .lane .track {
+      position: relative; flex: 1; height: 100%; border-radius: 8px;
+      background: repeating-linear-gradient(90deg, var(--panel) 0 6%, #25284d 6% 12%);
+    }
+    .lane .finish {
+      position: absolute; right: 0; top: 0; bottom: 0; width: 1.4%;
+      background: repeating-conic-gradient(#fff 0 25%, #000 0 50%) 0 0 / calc(var(--rh) * .4) calc(var(--rh) * .4);
+      border-radius: 0 8px 8px 0;
+    }
+    .lane .car {
+      position: absolute; top: 50%; line-height: 1; white-space: nowrap; font-size: calc(var(--rh) * .95);
+      transform: translate(-50%, -50%); transition: left .22s linear;
+    }
+    .lane .car span.m { font-size: .75em; margin-left: 2px; }
+    .lane .car .emo { display: inline-block; transform: scaleX(-1); }
+    .lane.off { opacity: .35; }
+    .lane.fin .name { color: var(--good); }
+
+    /* Ergebnis */
+    #results { padding: 24px 40px; overflow: auto; }
+    .podium { display: flex; gap: 20px; justify-content: center; align-items: flex-end; margin: 14px 0 22px; }
+    .podium .p { background: var(--panel2); border-radius: 16px 16px 0 0; padding: 18px 28px; text-align: center; min-width: 180px; }
+    .podium .p .medal { font-size: 3rem; }
+    .podium .p .n { font-size: 1.7rem; font-weight: 800; }
+    .podium .p1 { padding-top: 40px; padding-bottom: 36px; background: #5b4a14; }
+    .podium .p2 { padding-bottom: 20px; }
+    #resWrap { display: flex; gap: 32px; justify-content: center; align-items: flex-start; flex-wrap: wrap; }
+    table { border-collapse: collapse; font-size: 1.05rem; }
+    td, th { padding: 4px 14px; text-align: left; }
+    th { color: var(--muted); font-weight: 600; }
+    tr:nth-child(even) td { background: #1a1c38; }
+    .row-actions { display: flex; gap: 14px; justify-content: center; margin-top: 26px; }
+  </style>
+</head>
+<body>
+<div id="app">
+
+  <!-- 1) Set eingeben -->
+  <section id="setup">
+    <div class="wrap">
+      <h1>🏎️ Word Race – Raum erstellen</h1>
+      <p style="color:var(--muted)">Füge dein Vokabelset ein, eine Vokabel pro Zeile: <code>Wort ; Übersetzung</code>
+        (alternativ Tab, <code>=</code> oder <code> - </code>). Mehrere richtige Lösungen mit Komma trennen,
+        z. B. <code>house ; Haus, Gebäude</code>.</p>
+      <textarea id="setText" spellcheck="false" placeholder="cat ; Katze&#10;dog ; Hund&#10;to borrow ; ausleihen"></textarea>
+      <div style="margin-top:8px;display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+        <input type="file" id="file" accept=".txt,.csv,.tsv" class="hidden">
+        <button class="secondary" id="fileBtn">📄 Datei laden (.txt / .csv)</button>
+        <span id="count" style="color:var(--muted)"></span>
+      </div>
+      <div class="opts">
+        <div>
+          <label for="dir">Eingabe</label>
+          <select id="dir">
+            <option value="forward">Wort anzeigen → Übersetzung eintippen</option>
+            <option value="reverse">Übersetzung anzeigen → Wort eintippen</option>
+          </select>
+        </div>
+        <div>
+          <label for="dur">Maximale Dauer (Minuten)</label>
+          <input type="text" id="dur" value="5" inputmode="numeric">
+        </div>
+        <div>
+          <label for="len">Streckenlänge (100–600)</label>
+          <input type="text" id="len" value="300" inputmode="numeric">
+        </div>
+      </div>
+      <label class="check"><input type="checkbox" id="typo" checked> Kleine Tippfehler bei langen Wörtern (ab 8 Buchstaben) verzeihen</label>
+      <p class="err" id="setErr"></p>
+      <button id="createBtn" style="font-size:1.3rem">Raum öffnen</button>
+    </div>
+  </section>
+
+  <!-- 2) Lobby -->
+  <section id="lobby" class="center hidden">
+    <div class="joinurl">Geht auf <b id="joinUrl"></b> und gebt diesen Code ein:</div>
+    <div class="bigcode" id="bigCode">-----</div>
+    <div style="font-size:1.4rem"><span id="nPlayers">0</span> / <span id="maxPlayers">35</span> sind dabei</div>
+    <div class="chips" id="chips"></div>
+    <button id="startBtn" disabled>Rennen starten</button>
+    <p class="hint" style="color:var(--muted)" id="lobbyInfo"></p>
+  </section>
+
+  <!-- 3) Rennen -->
+  <section id="race" class="hidden" style="flex:1;display:flex;flex-direction:column;min-height:0">
+    <div class="bar">
+      <span class="code" id="raceCode"></span>
+      <span class="hint">Spätere Beitritte sind mit dem Code noch möglich</span>
+      <span class="timer" id="timer">5:00</span>
+      <button class="secondary" id="endBtn">Beenden</button>
+    </div>
+    <div id="lanes"></div>
+  </section>
+
+  <!-- 4) Ergebnis -->
+  <section id="results" class="hidden">
+    <h1 style="text-align:center;font-size:3rem;margin:0">🏁 Ergebnis</h1>
+    <div class="podium" id="podium"></div>
+    <div id="resWrap"></div>
+    <div class="row-actions">
+      <button id="againBtn">Neue Runde (gleiches Set)</button>
+      <button class="secondary" id="newSetBtn">Neues Set</button>
+    </div>
+  </section>
+</div>
+
+<script>
+(function () {
+  const $ = (id) => document.getElementById(id);
+  const SS = 'wordrace-teacher';
+  let ws = null, state = null, session = null, reconnectT = 0, view = '';
+  const lanes = new Map(); // playerId -> { row, car, ... }
+
+  try { session = JSON.parse(sessionStorage.getItem(SS) || 'null'); } catch (e) {}
+  try { $('setText').value = localStorage.getItem('wordrace-set') || ''; } catch (e) {}
+
+  // ------------------------------------------------------------ Set parsen
+  function parseSet(text) {
+    const out = [];
+    text.split(/\r?\n/).forEach((line) => {
+      line = line.trim();
+      if (!line) return;
+      let i = line.indexOf('\t'), len = 1;
+      if (i < 0) { i = line.indexOf(';'); }
+      if (i < 0) { i = line.indexOf('='); }
+      if (i < 0) { const m = line.match(/\s[-–—]\s/); if (m) { i = m.index; len = m[0].length; } }
+      if (i < 0) return;
+      const word = line.slice(0, i).trim().replace(/^"|"$/g, '');
+      const translation = line.slice(i + len).trim().replace(/^"|"$/g, '');
+      if (word && translation) out.push({ word, translation });
+    });
+    return out;
+  }
+  function hash(s) { let h = 0; for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0; return String(h); }
+
+  function updateCount() {
+    const n = parseSet($('setText').value).length;
+    $('count').textContent = n ? `${n} Vokabeln erkannt` : '';
+  }
+  $('setText').addEventListener('input', updateCount);
+  updateCount();
+  $('fileBtn').onclick = () => $('file').click();
+  $('file').onchange = (e) => {
+    const f = e.target.files[0]; if (!f) return;
+    f.text().then((t) => { $('setText').value = t; updateCount(); });
+  };
+
+  // ------------------------------------------------------------ Verbindung
+  function connect() {
+    ws = new WebSocket((location.protocol === 'https:' ? 'wss://' : 'ws://') + location.host);
+    ws.onopen = () => {
+      if (session) ws.send(JSON.stringify({ t: 'teacher', code: session.code, token: session.token }));
+    };
+    ws.onmessage = (ev) => handle(JSON.parse(ev.data));
+    ws.onclose = () => { clearTimeout(reconnectT); if (session) reconnectT = setTimeout(connect, 1000); };
+  }
+  const send = (m) => ws && ws.readyState === 1 && ws.send(JSON.stringify(m));
+
+  function handle(m) {
+    if (m.t === 'error') {
+      if (m.fatal) { session = null; sessionStorage.removeItem(SS); show('setup'); }
+      $('setErr').textContent = m.msg; return;
+    }
+    if (m.t === 'created') {
+      session = { code: m.code, token: m.token };
+      sessionStorage.setItem(SS, JSON.stringify(session));
+    }
+    if (m.t === 'history') {
+      try { localStorage.setItem('wordrace-hist-' + hash($('setText').value), JSON.stringify(m.history)); } catch (e) {}
+    }
+    if (m.t === 'state') { const prev = state && state.status; state = m; render(prev); }
+  }
+
+  // ------------------------------------------------------------ Anzeige
+  function show(v) {
+    view = v;
+    ['setup', 'lobby', 'race', 'results'].forEach((id) => {
+      $(id).classList.toggle('hidden', id !== v);
+    });
+    if (v === 'race') $('race').style.display = 'flex'; else $('race').style.display = '';
+  }
+
+  function render(prevStatus) {
+    $('raceCode').textContent = 'Code ' + state.code;
+    if (state.status === 'lobby') { if (view !== 'lobby') show('lobby'); renderLobby(); }
+    else if (state.status === 'running') {
+      if (view !== 'race') { show('race'); lanes.clear(); $('lanes').textContent = ''; }
+      renderRace();
+    } else if (state.status === 'done') {
+      if (view !== 'results') { show('results'); send({ t: 'history' }); }
+      renderResults();
+    }
+  }
+
+  function renderLobby() {
+    $('bigCode').textContent = state.code;
+    $('joinUrl').textContent = location.host + '/student.html';
+    $('nPlayers').textContent = state.players.length;
+    $('maxPlayers').textContent = state.maxPlayers;
+    $('startBtn').disabled = state.players.length === 0;
+    $('lobbyInfo').textContent = `Set mit ${state.vocabCount} Vokabeln · Strecke ${state.trackLength} · max. ${Math.round(state.duration / 60)} Min.`;
+    const chips = $('chips'); chips.textContent = '';
+    state.players.forEach((p) => {
+      const c = document.createElement('div'); c.className = 'chip' + (p.connected ? '' : ' off');
+      const n = document.createElement('span'); n.textContent = p.name;
+      const x = document.createElement('button'); x.textContent = '✕'; x.title = 'Entfernen';
+      x.onclick = () => send({ t: 'kick', id: p.id });
+      c.append(n, x); chips.appendChild(c);
+    });
+  }
+
+  function fmt(sec) { sec = Math.max(0, Math.ceil(sec)); return Math.floor(sec / 60) + ':' + String(sec % 60).padStart(2, '0'); }
+
+  function renderRace() {
+    $('timer').textContent = fmt(state.duration - state.time);
+    const box = $('lanes');
+    const n = Math.max(state.players.length, 1);
+    $('race').style.setProperty('--rh', Math.min(56, Math.max(14, box.clientHeight / n - 3)) + 'px');
+    state.players.forEach((p) => {
+      let L = lanes.get(p.id);
+      if (!L) {
+        const row = document.createElement('div'); row.className = 'lane';
+        const name = document.createElement('div'); name.className = 'name'; name.textContent = p.name;
+        const track = document.createElement('div'); track.className = 'track';
+        const fin = document.createElement('div'); fin.className = 'finish';
+        const car = document.createElement('div'); car.className = 'car';
+        const emo = document.createElement('span'); emo.className = 'emo'; emo.textContent = '🏎️';
+        const mod = document.createElement('span'); mod.className = 'm';
+        car.append(emo, mod); track.append(fin, car);
+        const rank = document.createElement('div'); rank.className = 'rank';
+        row.append(name, track, rank); box.appendChild(row);
+        L = { row, car, mod, rank, name }; lanes.set(p.id, L);
+      }
+      const pct = Math.min(1, p.pos / state.trackLength) * 96 + 1.5;
+      L.car.style.left = pct + '%';
+      L.mod.textContent = (p.boost ? '🔥' : '') + (p.slow ? '🐌' : '') + (p.shield ? '🛡️' : '');
+      L.rank.textContent = p.finished ? '🏁' + p.rank : p.rank;
+      L.row.classList.toggle('off', !p.connected);
+      L.row.classList.toggle('fin', p.finished);
+    });
+  }
+
+  function renderResults() {
+    const res = state.results || [];
+    const medals = ['🥇', '🥈', '🥉'];
+    const pod = $('podium'); pod.textContent = '';
+    [1, 0, 2].forEach((i) => {
+      const r = res[i]; if (!r) return;
+      const d = document.createElement('div'); d.className = 'p p' + (i + 1);
+      const a = document.createElement('div'); a.className = 'medal'; a.textContent = medals[i];
+      const b = document.createElement('div'); b.className = 'n'; b.textContent = r.name;
+      const c = document.createElement('div'); c.style.color = 'var(--muted)';
+      c.textContent = r.finished ? fmt(r.time) + ' Min.' : r.correct + ' richtig';
+      d.append(a, b, c); pod.appendChild(d);
+    });
+    const wrap = $('resWrap'); wrap.textContent = '';
+    const half = res.length > 12 ? Math.ceil(res.length / 2) : res.length;
+    for (let i = 0; i < res.length; i += half) {
+      const t = document.createElement('table');
+      const head = t.insertRow();
+      ['Platz', 'Name', 'Richtig', 'Falsch', 'Zeit'].forEach((h) => { const c = document.createElement('th'); c.textContent = h; head.appendChild(c); });
+      res.slice(i, i + half).forEach((r) => {
+        const row = t.insertRow();
+        [r.rank, r.name, r.correct, r.wrong, r.finished ? fmt(r.time) : '–'].forEach((v) => { row.insertCell().textContent = v; });
+      });
+      wrap.appendChild(t);
+    }
+  }
+
+  // ------------------------------------------------------------ Buttons
+  $('createBtn').onclick = () => {
+    const text = $('setText').value;
+    const vocab = parseSet(text);
+    if (vocab.length < 3) { $('setErr').textContent = 'Bitte mindestens 3 Vokabeln eintragen (Wort ; Übersetzung).'; return; }
+    $('setErr').textContent = '';
+    try { localStorage.setItem('wordrace-set', text); } catch (e) {}
+    let history = {};
+    try { history = JSON.parse(localStorage.getItem('wordrace-hist-' + hash(text)) || '{}'); } catch (e) {}
+    send({
+      t: 'create', vocab, history,
+      options: {
+        direction: $('dir').value, durationMin: $('dur').value, trackLength: $('len').value,
+        typoTolerance: $('typo').checked,
+      },
+    });
+  };
+  $('startBtn').onclick = () => send({ t: 'start' });
+  $('endBtn').onclick = () => { if (confirm('Rennen jetzt beenden?')) send({ t: 'end' }); };
+  $('againBtn').onclick = () => send({ t: 'again' });
+  $('newSetBtn').onclick = () => { session = null; sessionStorage.removeItem(SS); location.reload(); };
+  window.addEventListener('resize', () => { if (view === 'race' && state) renderRace(); });
+
+  show('setup');
+  connect();
+})();
+</script>
+</body>
+</html>

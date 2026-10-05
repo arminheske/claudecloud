@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Word Race – SchülerIn</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    #app { min-height: 100%; display: flex; flex-direction: column; max-width: 560px; margin: 0 auto; padding: 16px; }
+    section { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 12px; }
+    h1 { margin: 0 0 8px; text-align: center; }
+    #code { text-transform: uppercase; letter-spacing: .3em; text-align: center; font-size: 1.8rem; font-weight: 800; }
+    .big { font-size: 4rem; text-align: center; }
+
+    #play { justify-content: flex-start; }
+    .hud { background: var(--panel); border-radius: 14px; padding: 10px 14px; }
+    .hud .row { display: flex; justify-content: space-between; font-size: .95rem; color: var(--muted); }
+    .hud .row b { color: var(--text); }
+    .track { position: relative; height: 34px; margin-top: 6px; border-radius: 8px;
+      background: repeating-linear-gradient(90deg, #25284d 0 8%, var(--panel2) 8% 16%); }
+    .track .car { position: absolute; top: 50%; transform: translate(-50%, -50%) scaleX(-1); font-size: 24px; transition: left .25s linear; }
+    .track .flag { position: absolute; right: 4px; top: 50%; transform: translateY(-50%); }
+    .mods { min-height: 1.4em; text-align: center; font-size: 1.2rem; }
+    .stars { text-align: center; color: var(--accent); letter-spacing: .15em; margin-top: 18px; }
+    .prompt { text-align: center; font-size: clamp(2rem, 9vw, 3.2rem); font-weight: 800; padding: 6px 0 14px; word-break: break-word; }
+    #answer { font-size: 1.6rem; text-align: center; }
+    #send { width: 100%; font-size: 1.3rem; margin-top: 10px; }
+    .fb { min-height: 3.2em; text-align: center; font-size: 1.15rem; margin-top: 10px; }
+    .fb.good { color: var(--good); } .fb.bad { color: var(--bad); }
+    #toast { position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%); background: var(--accent); color: #1a1a2e;
+      font-weight: 800; padding: 10px 18px; border-radius: 999px; opacity: 0; transition: opacity .25s; pointer-events: none; z-index: 9; max-width: 92vw; text-align: center; }
+    #toast.on { opacity: 1; }
+    .top3 { text-align: left; margin: 10px auto; font-size: 1.3rem; }
+  </style>
+</head>
+<body>
+<div id="toast"></div>
+<div id="app">
+
+  <section id="join">
+    <h1>🏎️ Word Race</h1>
+    <div><label for="code">Code</label>
+      <input type="text" id="code" maxlength="5" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="ABCDE"></div>
+    <div><label for="name">Dein Name</label>
+      <input type="text" id="name" maxlength="20" autocomplete="off" placeholder="z. B. Lena"></div>
+    <p class="err" id="joinErr"></p>
+    <button id="joinBtn" style="font-size:1.3rem">Beitreten</button>
+  </section>
+
+  <section id="wait" class="hidden">
+    <div class="big">⏳</div>
+    <h1 id="waitTitle">Du bist dabei!</h1>
+    <p style="text-align:center;color:var(--muted)" id="waitInfo">Warte, bis die Lehrkraft das Rennen startet.</p>
+  </section>
+
+  <section id="play" class="hidden">
+    <div class="hud">
+      <div class="row"><span>Platz <b id="rank">–</b> / <b id="total">–</b></span><span id="timer"></span><span><b id="speed">0</b> km/h</span></div>
+      <div class="track"><span class="car" id="car">🏎️</span><span class="flag">🏁</span></div>
+    </div>
+    <div class="mods" id="mods"></div>
+    <div class="stars" id="stars"></div>
+    <div class="prompt" id="prompt">…</div>
+    <form id="form" autocomplete="off">
+      <input type="text" id="answer" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Übersetzung eintippen">
+      <button id="send" type="submit">Abschicken</button>
+    </form>
+    <div class="fb" id="fb"></div>
+  </section>
+
+  <section id="finished" class="hidden center">
+    <div class="big">🏁</div>
+    <h1>Du bist im Ziel!</h1>
+    <p id="finPlace" style="font-size:1.4rem"></p>
+    <p style="color:var(--muted)">Warte, bis die anderen fertig sind.</p>
+  </section>
+
+  <section id="done" class="hidden center">
+    <div class="big" id="doneEmoji">🏆</div>
+    <h1 id="doneTitle">Geschafft!</h1>
+    <p id="doneStats" style="font-size:1.2rem"></p>
+    <div class="top3" id="top3"></div>
+    <p style="color:var(--muted)">Warte auf die nächste Runde …</p>
+  </section>
+</div>
+
+<script>
+(function () {
+  const $ = (id) => document.getElementById(id);
+  const SS = 'wordrace-student';
+  let ws, session = null, reconnectT = 0, view = '', toastT = 0, lastStatus = '';
+
+  try { session = JSON.parse(sessionStorage.getItem(SS) || 'null'); } catch (e) {}
+  const qs = new URLSearchParams(location.search);
+  $('code').value = (qs.get('code') || (session && session.code) || '').toUpperCase();
+  try { $('name').value = localStorage.getItem('wordrace-name') || ''; } catch (e) {}
+
+  function show(v) {
+    view = v;
+    ['join', 'wait', 'play', 'finished', 'done'].forEach((id) => $(id).classList.toggle('hidden', id !== v));
+    if (v === 'play') $('answer').focus();
+  }
+
+  function toast(text) {
+    const t = $('toast'); t.textContent = text; t.classList.add('on');
+    clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('on'), 2200);
+  }
+
+  function connect() {
+    ws = new WebSocket((location.protocol === 'https:' ? 'wss://' : 'ws://') + location.host);
+    ws.onopen = () => {
+      if (session && session.resume) ws.send(JSON.stringify({ t: 'join', code: session.code, resume: session.resume }));
+    };
+    ws.onmessage = (ev) => handle(JSON.parse(ev.data));
+    ws.onclose = () => { clearTimeout(reconnectT); if (session && session.resume) reconnectT = setTimeout(connect, 1000); };
+  }
+  const send = (m) => ws && ws.readyState === 1 && ws.send(JSON.stringify(m));
+
+  function setQuestion(q) {
+    if (!q) return;
+    $('prompt').textContent = q.prompt;
+    $('stars').textContent = '★'.repeat(q.level) + '☆'.repeat(3 - q.level);
+  }
+
+  function handle(m) {
+    switch (m.t) {
+      case 'error':
+        if (session && session.resume && m.field === 'code') { session = null; sessionStorage.removeItem(SS); show('join'); }
+        $('joinErr').textContent = m.msg; $('joinBtn').disabled = false;
+        break;
+      case 'joined':
+        session = { code: $('code').value.trim().toUpperCase() || (session && session.code), resume: m.token };
+        sessionStorage.setItem(SS, JSON.stringify(session));
+        try { localStorage.setItem('wordrace-name', m.name); } catch (e) {}
+        $('waitTitle').textContent = 'Hallo ' + m.name + '!';
+        if (m.status === 'running') { setQuestion(m.question); show('play'); } else if (m.status === 'lobby') show('wait');
+        break;
+      case 'start': setQuestion(m.question); $('fb').textContent = ''; $('answer').value = ''; show('play'); break;
+      case 'lobby': show('wait'); $('waitInfo').textContent = 'Neue Runde – warte auf den Start.'; break;
+      case 'me': updateMe(m); break;
+      case 'result': showResult(m); break;
+      case 'event': showEvent(m); break;
+      case 'done': showDone(m); break;
+      case 'kicked': session = null; sessionStorage.removeItem(SS); show('join'); $('joinErr').textContent = 'Du wurdest aus dem Raum entfernt.'; break;
+    }
+  }
+
+  function fmt(sec) { sec = Math.max(0, Math.ceil(sec)); return Math.floor(sec / 60) + ':' + String(sec % 60).padStart(2, '0'); }
+
+  function updateMe(m) {
+    $('rank').textContent = m.rank; $('total').textContent = m.total;
+    $('speed').textContent = Math.round(m.speed * 4);
+    $('timer').textContent = m.status === 'running' ? '⏱ ' + fmt(m.duration - m.time) : '';
+    $('car').style.left = (Math.min(1, m.pos / m.trackLength) * 88 + 4) + '%';
+    $('mods').textContent = (m.boost ? '🔥 Boost  ' : '') + (m.slow ? '🐌 Langsam  ' : '') + (m.shield ? '🛡️ Schild  ' : '') + (m.streak >= 2 ? '✨ ' + m.streak + ' in Folge' : '');
+    if (m.status === 'running' && m.finished && view !== 'finished') { $('finPlace').textContent = 'Platz ' + m.rank; show('finished'); }
+  }
+
+  function showResult(m) {
+    const fb = $('fb');
+    if (m.correct) {
+      fb.className = 'fb good';
+      fb.textContent = m.almost ? '✅ Fast! Richtig wäre: ' + m.expected : '✅ Richtig!';
+    } else {
+      fb.className = 'fb bad';
+      fb.textContent = '❌ Richtig wäre: ' + m.expected;
+    }
+    setQuestion(m.question);
+  }
+
+  function showEvent(ev) {
+    const t = {
+      ability: { shortcut: '🌀 Abkürzung! Du springst nach vorn!', oil: '🛢️ Ölspur! Du bremst den Führenden aus!', shield: '🛡️ Schild aktiv – schützt dich einmal!' }[ev.ability],
+      oiled: '🛢️ ' + (ev.by || 'Jemand') + ' hat dich ausgebremst!',
+      'shield-block': '🛡️ Dein Schild hat dich gerettet!',
+      finish: '🏁 Im Ziel – Platz ' + ev.place + '!',
+    }[ev.type];
+    if (ev.type === 'correct' && ev.level === 3) toast('⚡ Schweres Wort – Boost!');
+    else if (t) toast(t);
+  }
+
+  function showDone(m) {
+    const me = m.you;
+    $('doneEmoji').textContent = me && me.rank <= 3 ? ['🥇', '🥈', '🥉'][me.rank - 1] : '🏆';
+    $('doneTitle').textContent = me ? 'Du bist Platz ' + me.rank + ' von ' + m.total : 'Runde beendet';
+    $('doneStats').textContent = me ? me.correct + ' richtig · ' + me.wrong + ' falsch' : '';
+    const t3 = $('top3'); t3.textContent = '';
+    m.top.forEach((r) => { const d = document.createElement('div'); d.textContent = ['🥇', '🥈', '🥉'][r.rank - 1] + ' ' + r.name; t3.appendChild(d); });
+    show('done');
+  }
+
+  $('joinBtn').onclick = () => {
+    const code = $('code').value.trim().toUpperCase(), name = $('name').value.trim();
+    if (code.length !== 5) { $('joinErr').textContent = 'Der Code hat 5 Zeichen.'; return; }
+    if (!name) { $('joinErr').textContent = 'Bitte gib einen Namen ein.'; return; }
+    if (!ws || ws.readyState !== 1) { $('joinErr').textContent = 'Verbindung wird aufgebaut … bitte nochmal versuchen.'; return; }
+    $('joinErr').textContent = ''; $('joinBtn').disabled = true;
+    session = null; sessionStorage.removeItem(SS);
+    send({ t: 'join', code, name });
+  };
+  $('name').addEventListener('keydown', (e) => { if (e.key === 'Enter') $('joinBtn').click(); });
+  $('code').addEventListener('keydown', (e) => { if (e.key === 'Enter') $('name').focus(); });
+
+  $('form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const text = $('answer').value.trim();
+    if (!text) return;
+    send({ t: 'answer', text });
+    $('answer').value = '';
+    $('answer').focus();
+  });
+
+  show('join');
+  connect();
+})();
+</script>
+</body>
+</html>
