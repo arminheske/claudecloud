@@ -31,23 +31,32 @@ const wrong = (e, i) => e.answer(i, (e.state.players[i].question.correctIndex + 
   assert.ok(e.state.players[0].speed < v1);
   assert.ok(e.state.players[0].slowT > 0);
 }
-// Schwere Wörter geben stärkeren Boost als leichte
+// Schwere Wörter geben stärkeren Boost und härtere Strafe als leichte
 {
-  const gain = (risk) => {
-    const e = fresh(); e.setRisk(0, risk);
-    const v = e.state.players[0].speed; right(e, 0);
-    return e.state.players[0].speed - v;
+  const byDiff = (d) => {
+    const e = fresh();
+    const p = e.state.players[0];
+    let q = p.question;
+    for (let t = 0; t < 200 && q.difficulty !== d; t++) { wrong(e, 0); q = p.question; }
+    assert.strictEqual(q.difficulty, d);
+    p.speed = 10; p.slowT = 0; p.boostT = 0;
+    right(e, 0);
+    return { gain: p.speed - 10, boostT: p.boostT };
   };
-  assert.ok(gain(3) > gain(2) && gain(2) > gain(1));
-  const e = fresh(); e.setRisk(0, 3); right(e, 0);
-  assert.ok(e.state.players[0].boostT > 0);
-}
-// Risiko wählt Wörter der passenden Schwierigkeit; schwer bestraft härter
-{
-  const e = fresh(); e.setRisk(0, 3);
-  assert.strictEqual(e.state.players[0].question.difficulty, 3);
-  const pen = (risk) => { const f = fresh(); f.setRisk(0, risk); right(f, 0); const v = f.state.players[0].speed; wrong(f, 0); return f.state.players[0].speed / v; };
+  const g1 = byDiff(1), g2 = byDiff(2), g3 = byDiff(3);
+  assert.ok(g3.gain > g2.gain && g2.gain > g1.gain);
+  assert.ok(g3.boostT > 0 && g1.boostT === 0);
+  const pen = (d) => {
+    const e = fresh(); const p = e.state.players[0];
+    for (let t = 0; t < 200 && p.question.difficulty !== d; t++) wrong(e, 0);
+    p.speed = 20; wrong(e, 0); return p.speed / 20;
+  };
   assert.ok(pen(3) < pen(1));
+}
+// Nächste Frage ist nie dasselbe Wort wie die vorige
+{
+  const e = fresh(); const p = e.state.players[0];
+  for (let t = 0; t < 100; t++) { const id = p.question.id; right(e, 0); assert.notStrictEqual(p.question.id, id); }
 }
 // Fähigkeiten nach je 3 Richtigen: Abkürzung, Ölspur, Schild
 {

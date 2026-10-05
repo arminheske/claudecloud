@@ -10,7 +10,8 @@
  *   });
  *   game.destroy();  // räumt DOM und Tastatur-Listener auf
  *
- * vocab: mind. 3 Einträge, difficulty 1 (leicht) bis 3 (schwer).
+ * vocab: mind. 3 Einträge, difficulty 1 (leicht) bis 3 (schwer):
+ * schwere Wörter geben mehr Boost, bestrafen Fehler aber auch härter.
  * Die Spiellogik (WordRace.createEngine) ist unabhängig vom DOM und testbar.
  */
 (function (root, factory) {
@@ -24,7 +25,7 @@
   var MAX_SPEED = 28;
   var DECAY = 3; // Geschwindigkeitsverlust pro Sekunde bis zur Reisegeschwindigkeit
   var ABILITIES = ['shortcut', 'oil', 'shield'];
-  var RISK = {
+  var DIFFICULTY = {
     1: { boost: 5, penalty: 0.6, label: 'Leicht' },
     2: { boost: 8, penalty: 0.45, label: 'Mittel' },
     3: { boost: 12, penalty: 0.3, label: 'Schwer' },
@@ -49,27 +50,20 @@
     function newPlayer() {
       return {
         pos: 0, speed: BASE_SPEED, boostT: 0, slowT: 0, shield: false,
-        streak: 0, abilityIdx: 0, risk: 2, question: null, correct: 0, wrong: 0,
+        streak: 0, abilityIdx: 0, question: null, correct: 0, wrong: 0,
       };
     }
 
     function pickQuestion(p) {
-      var pool = vocab.filter(function (v) { return (v.difficulty || 2) === p.risk; });
-      // Fallback: nächstliegende Schwierigkeit, falls es keine passenden Wörter gibt
-      for (var d = 1; pool.length === 0 && d <= 2; d++) {
-        pool = vocab.filter(function (v) { return Math.abs((v.difficulty || 2) - p.risk) <= d; });
-      }
-      if (pool.length === 0) pool = vocab;
       var last = p.question && p.question.id;
-      var fresh = pool.filter(function (v) { return v.id !== last; });
-      if (fresh.length) pool = fresh;
+      var pool = vocab.filter(function (v) { return v.id !== last; });
       var w = pool[Math.floor(rng() * pool.length)];
       var others = vocab.filter(function (v) { return v.translation !== w.translation; });
       var distractors = shuffle(others, rng).slice(0, 2).map(function (v) { return v.translation; });
       var options = shuffle([w.translation].concat(distractors), rng);
       p.question = {
         id: w.id, word: w.word, options: options,
-        correctIndex: options.indexOf(w.translation), difficulty: p.risk,
+        correctIndex: options.indexOf(w.translation), difficulty: w.difficulty || 2,
       };
     }
 
@@ -102,20 +96,9 @@
       state.events = [];
     }
 
-    function setRisk(i, risk) {
-      var p = state.players[i];
-      if (state.status !== 'running' || !RISK[risk] || p.risk === risk) return;
-      p.risk = risk;
-      pickQuestion(p);
-    }
-
-    function cycleRisk(i) {
-      setRisk(i, (state.players[i].risk % 3) + 1);
-    }
-
     function answer(i, optionIndex) {
       if (state.status !== 'running') return null;
-      var p = state.players[i], q = p.question, r = RISK[q.difficulty];
+      var p = state.players[i], q = p.question, r = DIFFICULTY[q.difficulty];
       var correct = optionIndex === q.correctIndex;
       if (correct) {
         p.correct++;
@@ -165,8 +148,7 @@
 
     return {
       state: state, start: start, tick: tick, answer: answer,
-      setRisk: setRisk, cycleRisk: cycleRisk, drainEvents: drainEvents,
-      TRACK_LENGTH: TRACK_LENGTH, RISK: RISK,
+      drainEvents: drainEvents, TRACK_LENGTH: TRACK_LENGTH, DIFFICULTY: DIFFICULTY,
     };
   }
 
@@ -179,12 +161,12 @@
     '.wr-panel{border:2px solid #ddd;border-radius:12px;padding:12px;background:#fff}',
     '.wr-panel.p0{border-color:#ef476f}.wr-panel.p1{border-color:#118ab2}',
     '.wr-word{font-size:1.6rem;font-weight:700;margin:6px 0 10px}',
-    '.wr-opt,.wr-risk,.wr-btn{display:block;width:100%;margin:6px 0;padding:10px;font-size:1rem;',
+    '.wr-opt,.wr-btn{display:block;width:100%;margin:6px 0;padding:10px;font-size:1rem;',
     'border:2px solid #ccc;border-radius:8px;background:#f8f8fb;cursor:pointer;text-align:left}',
-    '.wr-opt:hover,.wr-risk:hover,.wr-btn:hover{background:#eef}',
+    '.wr-opt:hover,.wr-btn:hover{background:#eef}',
     '.wr-opt kbd{display:inline-block;min-width:1.4em;margin-right:8px;padding:0 4px;',
     'border:1px solid #999;border-radius:4px;background:#fff;text-align:center;font-size:.85rem}',
-    '.wr-risk{text-align:center;font-size:.9rem}',
+    '.wr-stars{font-size:.9rem;color:#888;margin-top:-6px;margin-bottom:6px}',
     '.wr-status{min-height:1.4em;font-size:.95rem;margin-top:6px}',
     '.wr-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;',
     'justify-content:center;background:rgba(0,0,0,.55);color:#fff;border-radius:12px;text-align:center;font-size:2rem}',
@@ -192,8 +174,8 @@
   ].join('');
 
   var KEYS = [
-    { answers: ['1', '2', '3'], risk: 'q' },
-    { answers: ['8', '9', '0'], risk: 'p' },
+    { answers: ['1', '2', '3'] },
+    { answers: ['8', '9', '0'] },
   ];
   var NAMES = ['Spieler 1', 'Spieler 2'];
   var COLORS = ['#ef476f', '#118ab2'];
@@ -233,19 +215,18 @@
         b.addEventListener('click', function () { handleAnswer(i, k); });
         return b;
       });
-      var risk = el('button', 'wr-risk');
-      risk.addEventListener('click', function () { engine.cycleRisk(i); render(i); });
+      var stars = el('div', 'wr-stars');
       var status = el('div', 'wr-status');
-      [title, word].concat(optBtns, [risk, status]).forEach(function (n) { panel.appendChild(n); });
+      [title, word, stars].concat(optBtns, [status]).forEach(function (n) { panel.appendChild(n); });
       panelsEl.appendChild(panel);
-      return { word: word, opts: optBtns, risk: risk, status: status, statusT: 0 };
+      return { word: word, stars: stars, opts: optBtns, status: status, statusT: 0 };
     });
 
     var floaters = [];
     var raf = 0, last = 0, countdown = 0, destroyed = false;
 
     function render(i) {
-      var p = engine.state.players[i], q = p.question, u = ui[i];
+      var q = engine.state.players[i].question, u = ui[i];
       u.word.textContent = q.word;
       q.options.forEach(function (o, k) {
         u.opts[k].textContent = '';
@@ -253,9 +234,9 @@
         u.opts[k].appendChild(kbd);
         u.opts[k].appendChild(document.createTextNode(o));
       });
-      var r = engine.RISK[p.risk];
-      u.risk.textContent = '[' + KEYS[i].risk.toUpperCase() + '] Risiko: ' +
-        '★'.repeat(p.risk) + '☆'.repeat(3 - p.risk) + ' ' + r.label + ' (+' + r.boost + ' Tempo)';
+      var d = engine.DIFFICULTY[q.difficulty];
+      u.stars.textContent = '★'.repeat(q.difficulty) + '☆'.repeat(3 - q.difficulty) +
+        ' ' + d.label + ' (+' + d.boost + ' Tempo)';
     }
 
     function say(i, text) {
@@ -363,7 +344,6 @@
       for (var i = 0; i < 2; i++) {
         var k = KEYS[i].answers.indexOf(key);
         if (k !== -1) { handleAnswer(i, k); return; }
-        if (key === KEYS[i].risk) { engine.cycleRisk(i); render(i); return; }
       }
     }
 
