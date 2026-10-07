@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zum Glühenden Drachenei – Taverne &amp; Tafelhalle</title>
+<meta name="description" content="Zum Glühenden Drachenei: Fantasy-Taverne in den Nebelbergen. Drachenfeuer-Küche, Elfenwein und Zwergenbier. (Fantasieunternehmen)">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+  <a class="logo" href="#top">🥚 <span>Glühendes Drachenei</span></a>
+  <button class="burger" aria-label="Menü" aria-expanded="false">☰</button>
+  <nav>
+    <a href="#story">Unsere Sage</a>
+    <a href="#menu">Speisekarte</a>
+    <a href="#events">Bankette</a>
+    <a href="#reserve">Reservieren</a>
+    <a href="#visit">Anreise</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="embers" aria-hidden="true"></div>
+    <p class="eyebrow">Taverne &amp; Tafelhalle · seit 1203 nach dem Großen Brand</p>
+    <h1>Zum Glühenden<br>Drachenei</h1>
+    <p class="lead">Wo Feuer nicht nur im Ofen brennt. Speisen für Zwerge, Elfen, Orks und alle, die ihnen am Tisch gegenübersitzen.</p>
+    <div class="cta">
+      <a class="btn" href="#reserve">Tisch reservieren</a>
+      <a class="btn ghost" href="#menu">Speisekarte ansehen</a>
+    </div>
+  </section>
+
+  <section id="story" class="wrap two">
+    <div>
+      <h2>Unsere Sage</h2>
+      <p>Als die Drachendame <strong>Ignaria die Gütige</strong> ihr letztes Ei in einer Höhle unter dem Gasthaus ablegte, versprach sie, es nie zu verlassen – und nie wieder hungrig zu sein. Seitdem kocht Küchenmeister <strong>Borrik Eisenkelle</strong> mit ihrem Atem: knusprige Kruste, zarter Kern, kein Holz nötig.</p>
+      <p>Das Ei glüht bis heute im Herzen der Halle. Wer es berühren will, zahlt zwei Kupfer. Wer es stiehlt, darf mit Ignaria diskutieren.</p>
+    </div>
+    <ul class="facts">
+      <li><b>3</b><span>Feuerstellen, 1 davon lebendig</span></li>
+      <li><b>42</b><span>Fässer im Mondkeller</span></li>
+      <li><b>0</b><span>Gäste je gebissen</span></li>
+    </ul>
+  </section>
+
+  <section id="menu" class="menu">
+    <div class="wrap">
+      <h2>Speisekarte</h2>
+      <p class="sub">Preise in Goldmünzen (G). 1 G = 10 Silber. Vegetarisch 🌿 · Feurig 🔥 · Für Riesen 🦣</p>
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-cat="starter">Vorspeisen</button>
+        <button class="tab" data-cat="main">Hauptgänge</button>
+        <button class="tab" data-cat="dessert">Süßes</button>
+        <button class="tab" data-cat="drink">Tränke</button>
+      </div>
+      <div id="menu-list" class="cards"></div>
+    </div>
+  </section>
+
+  <section id="events" class="wrap">
+    <h2>Bankette &amp; Feste</h2>
+    <div class="grid3">
+      <article class="panel"><h3>⚔️ Heldenabend</h3><p>Jeden Freitag: Sänger, Bänkelballaden und ein Eintopf, der für drei Quests reicht.</p></article>
+      <article class="panel"><h3>🌕 Vollmondfest</h3><p>Elfen decken den Garten mit Laternen. Mitternachtsmenü mit sieben Gängen, jeder in anderer Farbe.</p></article>
+      <article class="panel"><h3>🏰 Königliche Tafel</h3><p>Die Halle für bis zu 60 Gäste. Mit Herold, der Ihren Namen laut und falsch ankündigt – auf Wunsch richtig.</p></article>
+    </div>
+  </section>
+
+  <section id="reserve" class="reserve">
+    <div class="wrap narrow">
+      <h2>Tisch reservieren</h2>
+      <p class="sub">Die Raben tragen Ihre Anfrage zu uns. (Demo – es wird nichts gesendet.)</p>
+      <form id="rform">
+        <label>Name / Titel<input name="name" required placeholder="z. B. Thorin, Sohn des Thrain"></label>
+        <div class="row">
+          <label>Datum<input type="date" name="date" required></label>
+          <label>Uhrzeit
+            <select name="time"><option>18:00</option><option>19:00</option><option selected>20:00</option><option>21:00</option></select>
+          </label>
+          <label>Personen<input type="number" name="n" min="1" max="60" value="4" required></label>
+        </div>
+        <label>Volk
+          <select name="race"><option>Mensch</option><option>Zwerg</option><option>Elf</option><option>Ork</option><option>Halbling</option><option>Drache (Menschengestalt)</option></select>
+        </label>
+        <button class="btn" type="submit">Raben losschicken 🐦‍⬛</button>
+        <p id="rmsg" role="status"></p>
+      </form>
+    </div>
+  </section>
+
+  <section id="visit" class="wrap two">
+    <div>
+      <h2>Anreise</h2>
+      <p>Drachenpfad 7, Nebelberge<br>Von der Weggabelung am Schiefen Turm dem Rauch folgen.</p>
+      <p class="muted">Parkplätze für Greife, Pferde und Teppiche hinter dem Haus. Drachen bitte vorher anmelden.</p>
+    </div>
+    <table class="hours">
+      <tr><td>Montag – Donnerstag</td><td>17:00 – 23:00</td></tr>
+      <tr><td>Freitag – Samstag</td><td>17:00 – Mitternacht</td></tr>
+      <tr><td>Sonntag</td><td>12:00 – 21:00 (Familienmahl)</td></tr>
+      <tr><td>Vollmond</td><td>bis zum Morgengrauen</td></tr>
+    </table>
+  </section>
+</main>
+
+<footer>
+  <p>© <span id="year"></span> Zum Glühenden Drachenei · Ein Fantasieunternehmen – alle Namen, Orte und Drachen sind frei erfunden.</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
