@@ -150,10 +150,10 @@ function page(ans){
    badge(c.s,a,xx,yy+0.02,0.55,0.24,CHIP,INK,9);T(c.s,b,xx+0.65,yy,2.6,0.28,{fontSize:10,color:INK,valign:'middle'});});
   y+=2.7;}
  else y=2.5;
- const RH=ans?0.26:0.36;
+ const RH=ans?0.26:0.35;
  y+=block(c,y,1,[{x:L,w:CWd,head:'Schreibe mit Stellenwerten:',items:D.t1l,qw:0.9},{x:R,w:CWd,head:'Schreibe als Zahl:',items:D.t1r,qw:1.1}],RH,ans)+0.12;
  if(!ans){c=mk('LIGHT','Seite 2');hdr(c.s);y=1.5;}
- y+=block(c,y,2,[{x:L,w:CWd,head:'Schreibe mit Stellenwerten:',items:D.t2l,qw:0.9},{x:R,w:CWd,head:'Schreibe als Zahl:',items:D.t2r,qw:1.1}],RH,ans)+0.12;
+ y+=block(c,y,2,[{x:L,w:CWd,head:'Schreibe mit Stellenwerten:',items:D.t2l.slice(0,5),qw:0.9},{x:R,w:CWd,head:'Schreibe als Zahl:',items:D.t2r.slice(0,5),qw:1.1}],RH,ans)+0.12;
  y+=block(c,y,3,[{x:L,w:CWd,head:'Schreibe als Zahl:',items:D.t3l,qw:2.1},{x:R,w:CWd,head:'Schreibe mit Stellenwerten:',items:D.t3r,qw:0.9}],RH,ans)+0.12;
  y+=block4(c,y,4,D.t4,ans?0.27:0.62,ans)+0.1;
  return y;}
