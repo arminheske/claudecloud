@@ -142,7 +142,10 @@ function brow(c,y,txt,tx,fill=CARD){card(c,7.2,y,5.4,1.05,fill);}
 const TXT=JSON.parse(require('fs').readFileSync(__dirname+'/ak.json','utf8'));
 function person(s,cx,y,w,fill){fill=fill||DEEP;s.addShape(S.ellipse,{x:cx-w*0.25,y,w:w*0.5,h:w*0.5,fill:{color:fill},line:{color:fill,width:0}});
   s.addShape(S.roundRect,{x:cx-w*0.5,y:y+w*0.58,w,h:w*0.62,rectRadius:w*0.28,fill:{color:fill},line:{color:fill,width:0}});}
-function L(c,kick,segs,subt,size=38,subY=4.7){kicker(c,kick,0.7,1.2);head(c,segs,0.7,1.75,6.2,3.0,size);if(subt)sub(c,subt,0.7,subY,5.8,1.8,18);}
+function L(c,kick,segs,subt,size=38,subY){kicker(c,kick,0.7,1.2);head(c,segs,0.7,1.75,6.2,3.0,size);
+  if(subt){const txt=segs.map(x=>x[0]).join('');const cpl=Math.floor(6.2/(0.95*size*0.675/72));let lines=1,cur=0;
+    txt.split(' ').forEach(w=>{if(cur+w.length+(cur?1:0)>cpl){lines++;cur=w.length;}else cur+=w.length+(cur?1:0);});
+    sub(c,subt,0.7,subY||(1.75+lines*0.6*(size/38)+0.12),5.8,1.8,18);}}
 function lst(c,items,hi,y0=0.7,gap=0.68,h=0.58){steps(c,hi,items,7.2,y0,gap,h,5.4);}
 
 
@@ -271,6 +274,10 @@ add('DARK',c=>{L(c,'Danke fürs Zuschauen',[['Bis zum ',false],['nächsten Mal',
  tile(c.s,7.2,2.2,5.4,1.6,'Cleverbox',NEON,DEEP,34);T(c.s,'www.cleverbox.co.at',7.2,4.2,5.4,0.7,{fontSize:18,color:NEON,align:'center',valign:'middle'});});
 let _i=0,_k=0;
 while(_i<SL.length){const f=SL[_i];let mode='LIGHT';if(typeof SL[_i+1]==='string'){mode=SL[_i+1];_i+=2;}else _i+=1;
-  const t=TXT[_k];const c=mk(mode,'Folie '+(_k+1)+' – '+t[1]+': '+t[2]);f(c);_k++;}
+  const t=TXT[_k];const c=mk(mode,'Folie '+(_k+1)+' – '+t[1]+': '+t[2]);f(c);
+  const ob=c.s._slideObjects.filter(o=>o.options&&o.options.x>=6.9&&o.options.y!==undefined);
+  if(ob.length){const mn=Math.min(...ob.map(o=>o.options.y)),mx=Math.max(...ob.map(o=>o.options.y+(o.options.h||0)));
+    let dy=4.2-(mn+mx)/2;dy=Math.max(Math.min(dy,6.85-mx),0.5-mn);if(dy>0)ob.forEach(o=>o.options.y+=dy);}
+  _k++;}
 if(_k!==62)throw new Error('Folienzahl '+_k);
 (async()=>{await pres.writeFile({fileName:OUT});await applyTheme(OUT,THEME);console.log('ok',_k);})();
