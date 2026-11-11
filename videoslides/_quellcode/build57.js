@@ -31,7 +31,7 @@ function T(s,text,x,y,w,h,o={}){
 }
 function kicker(c,text,x=0.7,y=0.75,w=8){T(c.s,text,x,y,w,0.4,{fontSize:18,color:c.mode==='DARK'?NEON:GREEN,bold:true});}
 function head(c,segs,x,y,w,h,size=40){
-  const runs=segs.map(([t,a])=>({text:t,options:{color:a?c.P.acc:c.P.text,highlight:(a&&c.P.hl)?NEON:undefined}}));
+  const runs=segs.map(([t,a,br])=>({text:t,options:{color:a?c.P.acc:c.P.text,highlight:(a&&c.P.hl)?NEON:undefined,breakLine:!!br}}));
   T(c.s,runs,x,y,w,h,{fontSize:size,lineSpacingMultiple:1.05});
 }
 function sub(c,text,x,y,w,h,size=20){T(c.s,text,x,y,w,h,{fontSize:size,color:c.P.sub,lineSpacingMultiple:1.2});}
@@ -142,10 +142,17 @@ function brow(c,y,txt,tx,fill=CARD){card(c,7.2,y,5.4,1.05,fill);}
 const TXT=JSON.parse(require('fs').readFileSync(__dirname+'/ak.json','utf8'));
 function person(s,cx,y,w,fill){fill=fill||DEEP;s.addShape(S.ellipse,{x:cx-w*0.25,y,w:w*0.5,h:w*0.5,fill:{color:fill},line:{color:fill,width:0}});
   s.addShape(S.roundRect,{x:cx-w*0.5,y:y+w*0.58,w,h:w*0.62,rectRadius:w*0.28,fill:{color:fill},line:{color:fill,width:0}});}
-function L(c,kick,segs,subt,size=38,subY){kicker(c,kick,0.7,1.2);head(c,segs,0.7,1.75,6.2,3.0,size);
-  if(subt){const txt=segs.map(x=>x[0]).join('');const cpl=Math.floor(6.2/(0.95*size*0.675/72));let lines=1,cur=0;
-    txt.split(' ').forEach(w=>{if(cur+w.length+(cur?1:0)>cpl){lines++;cur=w.length;}else cur+=w.length+(cur?1:0);});
-    sub(c,subt,0.7,subY||(1.75+lines*0.6*(size/38)+0.12),5.8,1.8,18);}}
+function L(c,kick,segs,subt,size=38,subY){kicker(c,kick,0.7,1.2);
+  const full=segs.map(x=>x[0]).join('');let lines=1;
+  if(full.length>=20){ // deterministischer Umbruch nahe der Mitte
+    let pos=0,best=-1,bd=1e9;for(let k=0;k<full.length;k++){if(full[k]===' '){const d=Math.abs(k-full.length/2);if(d<bd){bd=d;best=k;}}}
+    const ns=[];let acc=0;
+    segs.forEach(([t,a])=>{const e=acc+t.length;
+      if(best>=acc&&best<e){const o=best-acc;const l=t.slice(0,o),r=t.slice(o+1);if(l)ns.push([l,a,true]);else if(ns.length)ns[ns.length-1][2]=true;if(r)ns.push([r,a]);}
+      else ns.push([t,a]);acc=e;});
+    segs=ns;lines=2;}
+  head(c,segs,0.7,1.75,6.2,3.0,size);
+  if(subt)sub(c,subt,0.7,subY||(1.75+lines*0.0165*size+0.03),5.8,1.8,18);}
 function lst(c,items,hi,y0=0.7,gap=0.68,h=0.58){steps(c,hi,items,7.2,y0,gap,h,5.4);}
 
 
