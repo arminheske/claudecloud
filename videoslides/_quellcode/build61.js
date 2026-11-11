@@ -121,13 +121,13 @@ const IW=6.67,IX=X0+0.2;
 const lines=(t,w,fs=9)=>Math.ceil(t.length/(w*(fs===9?14.5:13.5)));
 const ANS=process.argv[2]==='ans';
 const TABLES={
- t1:{cols:[['Situation',3.2],['Ja / Nein',0.75],['Begründung',2.72]],rows:[['Moritz hat Lieferung „bis 10. März“ vereinbart. Am 12. März ist die Ware noch nicht da, weil der Händler die Bestellung vergessen hat.','Ja','Die Lieferung ist fällig und der Verkäufer ist schuld.'],['Die Ware kommt zu spät, weil ein Hochwasser die Straßen gesperrt hat.','Nein','Den Verkäufer trifft keine Schuld.'],['Es wurde kein Liefertermin vereinbart. Moritz wartet seit zwei Wochen, hat sich aber noch nicht gemeldet.','Nein','Ohne festen Termin muss Moritz zuerst mahnen und eine Nachfrist setzen.']],ans:[1,2],center:[1],minrow:0.5},
- t2:{cols:[['Situation',4.4],['Recht',2.27]],rows:[['Moritz braucht die Ware unbedingt und gibt dem Händler noch 7 Tage Zeit.','Nachfrist setzen'],['Moritz will die Ware nicht mehr und storniert die Bestellung.','Rücktritt vom Vertrag'],['Das Geschenk kommt zu spät. Moritz kauft woanders ein teureres und verlangt die Differenz vom Händler.','Schadenersatz']],ans:[1],minrow:0.34},
- t3:{cols:[['Mangel',2.65],['offen',0.8],['versteckt',0.92],['wesentlich',1.0],['unwesentlich',1.3]],rows:[['Das Handydisplay ist beim Auspacken zerbrochen.','X','','X',''],['Der Akku lädt nach einer Woche nicht mehr.','','X','X',''],['Am neuen Sessel ist ein kleiner Kratzer an der Rückseite.','X','','','X'],['Die Bremsen des neuen Fahrrads funktionieren nicht.','X','','X','']],ans:[1,2,3,4],center:[1,2,3,4],minrow:0.34},
- t4:{cols:[['Situation',4.4],['Recht',2.27]],rows:[['Der Händler repariert das Fahrrad oder gibt Moritz ein neues.','Nacherfüllung'],['Wegen des kleinen Kratzers bekommt Moritz 30 € vom Kaufpreis zurück.','Minderung'],['Der Laptop lässt sich nicht reparieren. Moritz gibt ihn zurück und bekommt sein Geld.','Rücktritt vom Vertrag'],['Wegen der defekten Bremsen stürzt Moritz, sein Handy geht kaputt. Er verlangt das Geld dafür.','Schadenersatz']],ans:[1],minrow:0.34},
+ t1:{cols:[['Situation',3.2],['Ja / Nein',0.75],['Begründung',2.72]],rows:[['Moritz hat Lieferung „bis 10. März“ vereinbart. Am 12. März ist die Ware noch nicht da, weil der Händler die Bestellung vergessen hat.','Ja','Die Lieferung ist fällig und der Verkäufer ist schuld.'],['Die Ware kommt zu spät, weil ein Hochwasser die Straßen gesperrt hat.','Nein','Den Verkäufer trifft keine Schuld.'],['Es wurde kein Liefertermin vereinbart. Moritz wartet seit zwei Wochen, hat sich aber noch nicht gemeldet.','Nein','Ohne festen Termin muss Moritz zuerst mahnen und eine Nachfrist setzen.']],ans:[1,2],center:[1],minrow:0.4},
+ t2:{cols:[['Situation',4.4],['Recht',2.27]],rows:[['Moritz braucht die Ware unbedingt und gibt dem Händler noch 7 Tage Zeit.','Nachfrist setzen'],['Moritz will die Ware nicht mehr und storniert die Bestellung.','Rücktritt vom Vertrag'],['Das Geschenk kommt zu spät. Moritz kauft woanders ein teureres und verlangt die Differenz vom Händler.','Schadenersatz']],ans:[1],minrow:0.28},
+ t3:{cols:[['Mangel',2.65],['offen',0.8],['versteckt',0.92],['wesentlich',1.0],['unwesentlich',1.3]],rows:[['Das Handydisplay ist beim Auspacken zerbrochen.','X','','X',''],['Der Akku lädt nach einer Woche nicht mehr.','','X','X',''],['Am neuen Sessel ist ein kleiner Kratzer an der Rückseite.','X','','','X'],['Die Bremsen des neuen Fahrrads funktionieren nicht.','X','','X','']],ans:[1,2,3,4],center:[1,2,3,4],minrow:0.28},
+ t4:{cols:[['Situation',4.4],['Recht',2.27]],rows:[['Der Händler repariert das Fahrrad oder gibt Moritz ein neues.','Nacherfüllung'],['Wegen des kleinen Kratzers bekommt Moritz 30 € vom Kaufpreis zurück.','Minderung'],['Der Laptop lässt sich nicht reparieren. Moritz gibt ihn zurück und bekommt sein Geld.','Rücktritt vom Vertrag'],['Wegen der defekten Bremsen stürzt Moritz, sein Handy geht kaputt. Er verlangt das Geld dafür.','Schadenersatz']],ans:[1],minrow:0.28},
  t5:{cols:[['Schritt',5.6],['Nr.',1.07]],rows:[['3. Mahnung per Einschreiben: letzte Frist, Androhung rechtlicher Schritte','3'],['Freundliche Zahlungserinnerung','1'],['Inkassobüro, Rechtsanwalt oder Gericht','4'],['2. Mahnung mit neuer Frist, Androhung von Verzugszinsen und Mahnspesen','2']],ans:[1],center:[1],minrow:0.3}
 };
-function tRows(tb,cols){return tb.rows.map(r=>Math.max(tb.minrow||0.27,...r.map((t,ci)=>{const txt=String(t);const w=tb.cols[ci][1]-0.12;return lines(txt,w)*0.14+0.06;})));}
+function tRows(tb,cols){return tb.rows.map(r=>Math.max(tb.minrow||0.27,...r.map((t,ci)=>{const txt=String(t);const w=tb.cols[ci][1]-0.12;return lines(txt,w)*0.14+0.04;})));}
 const BL=[];
 function tableBlock(n,title,instr,key,after,afterAns,part){BL.push({n,title,instr,key,after,afterAns,part});}
 tableBlock(1,'Liegt ein Lieferverzug vor?','Begründe.','t1',null,null,'Teil A: Lieferverzug');
@@ -141,11 +141,11 @@ function measure(b,ans){
   if(b.key&&TABLES[b.key]){const tb=TABLES[b.key];h+=0.3+tRows(tb).reduce((a,x)=>a+x,0)+0.1;}
   if(b.key==='gap')h+=0.85;
   if(b.key==='inv')h+=2.15+0.9+0.1+(ans?0.5:0.7)+0.3;
-  if(b.after)b.after.forEach((a,i)=>{h+=ans?(lines(b.afterAns[i],IW,9.5)*0.18+0.34):(0.32+a[1]*0.3);});
+  if(b.after)b.after.forEach((a,i)=>{h+=ans?(lines(b.afterAns[i],IW,9.5)*0.16+0.2):(0.32+a[1]*0.3);});
   if(!b.key&&b.afterAns&&!b.after)h+=0;
-  return h+0.12+(b.part?0.32:0);}
+  return h+0.12+(b.part?0.27:0);}
 function draw(c,y,b,ans){
-  let h=measure(b,ans);if(b.part){T(c.s,b.part,X0,y,W,0.28,{fontSize:11,bold:true,color:GREEN,valign:'middle'});y+=0.32;h-=0.32;}card(c,X0,y,W,h);circleNum(c.s,b.n,X0+0.15,y+0.1,0.38,NEON,INK);
+  let h=measure(b,ans);if(b.part){T(c.s,b.part,X0,y,W,0.28,{fontSize:11,bold:true,color:GREEN,valign:'middle'});y+=0.27;h-=0.27;}card(c,X0,y,W,h);circleNum(c.s,b.n,X0+0.15,y+0.1,0.38,NEON,INK);
   T(c.s,b.title,X0+0.7,y+0.1,W-0.9,0.38,{fontSize:11,bold:true,color:INK,valign:'middle'});
   let yy=y+0.5;
   if(b.instr){const hl=lines(b.instr,IW-0.1,9.5)*0.17+0.08;T(c.s,b.instr,IX,yy,IW,hl,{fontSize:9.5,color:GRAY,valign:'top'});yy+=hl;}
@@ -180,10 +180,10 @@ function build(ans){
  head(c,[['Probleme ',false],['beim Kauf',true],[ans?' – Lösungen':'',false]],X0,1.8,W,0.7,24);
  let y=2.6;
  if(!ans){T(c.s,'Name:',X0,2.6,0.8,0.35,{fontSize:11,bold:true,color:GRAY,valign:'middle'});dl(c.s,X0+0.8,2.9,3.0);
-  T(c.s,'Datum:',X0+4.1,2.6,0.9,0.35,{fontSize:11,bold:true,color:GRAY,valign:'middle'});dl(c.s,X0+5.0,2.9,2.07);y=3.05;} else y=2.5;
+  T(c.s,'Datum:',X0+4.1,2.6,0.9,0.35,{fontSize:11,bold:true,color:GRAY,valign:'middle'});dl(c.s,X0+5.0,2.9,2.07);y=2.95;} else y=2.5;
  let pg=1;
  BL.filter(b=>b.n<=5).forEach(b=>{const h=measure(b,ans);
-  if(y+h>11.2){pg++;c=mk('LIGHT','Seite '+pg);hdr(c.s);y=1.45;}
+  if(y+h>11.26){pg++;c=mk('LIGHT','Seite '+pg);hdr(c.s);y=1.45;}
   console.log(b.n,pg,y.toFixed(2),h.toFixed(2));draw(c,y,b,ans);y+=h+0.1;});
  return [pg,y];}
 const r=build(ANS);
