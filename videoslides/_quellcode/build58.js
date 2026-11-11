@@ -120,8 +120,8 @@ function dl(s,x,y,w){s.addShape(S.line,{x,y,w,h:0,line:{color:LINE,width:1.25,da
 const IW=6.67,IX=X0+0.2;
 const lines=(t,w,fs=9)=>Math.ceil(t.length/(w*(fs===9?14.5:13.5)));
 const TABLES={
- t2:{cols:[['Textstelle',5.1],['Teil',1.57]],rows:[['„Gerne stelle ich mich Ihnen in einem persönlichen Gespräch vor.“','Schluss'],['„Bewerbung als Bürokauffrau – Ihr Inserat auf karriere.at vom 3. März“','Betreff'],['„Sehr geehrte Frau Berger,“','Anrede'],['„Durch mein Praktikum im Rechnungswesen kenne ich die Arbeit mit Buchhaltungsprogrammen bereits sehr gut.“','Hauptteil'],['„Ich habe Ihr Inserat auf karriere.at gelesen und bewerbe mich um die Stelle als Bürokauffrau.“','Einleitung']],ans:[1],minrow:0.3},
- t3:{cols:[['Was Lisa gemacht hat',3.4],['Was ist besser?',3.27]],rows:[['Sie beginnt mit „Sehr geehrte Damen und Herren“, obwohl im Inserat eine Ansprechperson genannt ist.','Die genannte Person direkt ansprechen. Das zeigt Interesse.'],['Sie legt ihr Originalzeugnis bei.','Zeugnisse immer nur in Kopie beilegen.'],['Sie verwendet ein Urlaubsfoto als Bewerbungsfoto.','Ein professionelles Foto, am besten vom Fotografen.'],['Sie schreibt dasselbe Bewerbungsschreiben für alle Stellen.','Auf das jeweilige Inserat eingehen und die eigenen Stärken mit den Anforderungen verknüpfen.'],['Im Lebenslauf steht ihre erste Schule ganz oben.','Mit dem aktuellsten Eintrag beginnen.']],ans:[1],minrow:0.3},
+ t2:{cols:[['Textstelle',5.1],['Teil',1.57]],rows:[['„Gerne stelle ich mich Ihnen in einem persönlichen Gespräch vor.“','Schluss'],['„Bewerbung als Bürokauffrau – Ihr Inserat auf karriere.at vom 3. März“','Betreff'],['„Sehr geehrte Frau Berger,“','Anrede'],['„Durch mein Praktikum im Rechnungswesen kenne ich die Arbeit mit Buchhaltungsprogrammen bereits sehr gut.“','Hauptteil'],['„Ich habe Ihr Inserat auf karriere.at gelesen und bewerbe mich um die Stelle als Bürokauffrau.“','Einleitung']],ans:[1],minrow:0.27},
+ t3:{cols:[['Was Lisa gemacht hat',3.7],['Was ist besser?',2.97]],rows:[['Sie beginnt mit „Sehr geehrte Damen und Herren“, obwohl im Inserat eine Ansprechperson genannt ist.','Die genannte Person direkt ansprechen. Das zeigt Interesse.'],['Sie legt ihr Originalzeugnis bei.','Zeugnisse immer nur in Kopie beilegen.'],['Sie verwendet ein Urlaubsfoto als Bewerbungsfoto.','Ein professionelles Foto, am besten vom Fotografen.'],['Sie schreibt dasselbe Bewerbungsschreiben für alle Stellen.','Auf das jeweilige Inserat eingehen und die eigenen Stärken mit den Anforderungen verknüpfen.'],['Im Lebenslauf steht ihre erste Schule ganz oben.','Mit dem aktuellsten Eintrag beginnen.']],ans:[1],minrow:0.27},
  t4:{cols:[['Angabe',3.9],['Abschnitt',2.77]],rows:[['Englisch: sehr gute Kenntnisse (B2)','besondere Fähigkeiten'],['Telefonnummer und E-Mail-Adresse','persönliche Daten'],['Ferialpraxis bei der Raiffeisenbank, Juli 2026','Praxis- und Berufserfahrung'],['Handelsakademie Steyr, seit 2024','Ausbildung'],['Führerschein B','besondere Fähigkeiten'],['Trainerin im Volleyballverein','persönliche Interessen'],['Staatsangehörigkeit','persönliche Daten']],ans:[1],minrow:0.23},
  t5:{cols:[['Kriterium',4.3],['formal',1.18],['inhaltlich',1.19]],rows:[['Vollständigkeit der Unterlagen','X',''],['Lücken im Lebenslauf','','X'],['korrekte Rechtschreibung','X',''],['Häufigkeit von Arbeitsplatzwechseln','','X'],['Sauberkeit und Übersichtlichkeit','X',''],['Qualifikationen im Vergleich zum Anforderungsprofil','','X'],['Gesamteindruck','X',''],['Stil und Ausdruck','','X']],ans:[1,2],center:[1,2],minrow:0.23}
 };
@@ -137,7 +137,7 @@ const GAP=[['Eine vollständige Bewerbung besteht aus dem',null,'Bewerbungsschre
 function measure(b,ans){
   let h=0.5; if(b.instr)h+=lines(b.instr,IW-0.1,9.5)*0.17+0.08;
   if(b.key&&TABLES[b.key]){const tb=TABLES[b.key];h+=0.3+tRows(tb).reduce((a,x)=>a+x,0)+0.1;}
-  if(b.key==='gap')h+=1.15;
+  if(b.key==='gap')h+=0.85;
   if(b.key==='inv')h+=2.15+0.9+0.1+(ans?0.5:0.7)+0.3;
   if(b.after)b.after.forEach((a,i)=>{h+=ans?(lines(b.afterAns[i],IW,9.5)*0.18+0.34):(0.32+a[1]*0.3);});
   if(!b.key&&b.afterAns&&!b.after)h+=0;
@@ -154,9 +154,9 @@ function draw(c,y,b,ans){
       if(!isAns||ans)T(c.s,String(t),xx+0.06,yy,w-0.1,rh[ri],{fontSize:9,bold:isAns,color:isAns?GREEN:INK,valign:'middle',align:(tb.center&&tb.center.includes(ci))?'center':'left'});xx+=w;});yy+=rh[ri];});
     yy+=0.1;}
   if(b.key==='gap'){
-    if(ans){const runs=[];GAP.forEach(([a,_,s_],k)=>{const nx=GAP[k+1];runs.push({text:a+' ',options:{color:INK}});if(s_)runs.push({text:s_+((nx&&/^[.,]/.test(nx[0]))?'':' '),options:{bold:true,color:GREEN}});});T(c.s,runs,IX,yy,IW,1.1,{fontSize:10,valign:'top',lineSpacingMultiple:1.4});}
-    else{const txt=GAP.map(([a,_,s_])=>a+(s_?' ____________________':'')).join(' ').replace(/ \./g,'.').replace(/ ,/g,',');T(c.s,txt,IX,yy,IW,1.1,{fontSize:10,color:INK,valign:'top',lineSpacingMultiple:1.4});}
-    yy+=1.15;}
+    if(ans){const runs=[];GAP.forEach(([a,_,s_],k)=>{const nx=GAP[k+1];runs.push({text:a+' ',options:{color:INK}});if(s_)runs.push({text:s_+((nx&&/^[.,]/.test(nx[0]))?'':' '),options:{bold:true,color:GREEN}});});T(c.s,runs,IX,yy,IW,0.8,{fontSize:10,valign:'top',lineSpacingMultiple:1.4});}
+    else{const txt=GAP.map(([a,_,s_])=>a+(s_?' ____________________':'')).join(' ').replace(/ \./g,'.').replace(/ ,/g,',');T(c.s,txt,IX,yy,IW,0.8,{fontSize:10,color:INK,valign:'top',lineSpacingMultiple:1.4});}
+    yy+=0.85;}
   if(b.key==='inv'){
     c.s.addShape(S.rect,{x:IX,y:yy,w:IW,h:2.05,fill:{color:'FFFFFF'},line:{color:LINE,width:1.25}});
     INV.forEach((l,i)=>{const [a,bb]=l.split('|');const ly=yy+0.07+i*0.215;T(c.s,a,IX+0.15,ly,IW-1.6,0.22,{fontSize:9,bold:i===2,color:INK,valign:'middle'});if(bb)T(c.s,bb,IX+IW-1.5,ly,1.35,0.22,{fontSize:9,bold:i>=5,color:INK,align:'right',valign:'middle'});});
@@ -178,7 +178,7 @@ function build(ans){
  head(c,[['Der ',false],['Bewerbungsprozess',true],[ans?' – Lösungen':'',false]],X0,1.8,W,0.7,24);
  let y=2.6;
  if(!ans){T(c.s,'Name:',X0,2.6,0.8,0.35,{fontSize:11,bold:true,color:GRAY,valign:'middle'});dl(c.s,X0+0.8,2.9,3.0);
-  T(c.s,'Datum:',X0+4.1,2.6,0.9,0.35,{fontSize:11,bold:true,color:GRAY,valign:'middle'});dl(c.s,X0+5.0,2.9,2.07);y=3.1;} else y=2.5;
+  T(c.s,'Datum:',X0+4.1,2.6,0.9,0.35,{fontSize:11,bold:true,color:GRAY,valign:'middle'});dl(c.s,X0+5.0,2.9,2.07);y=3.05;} else y=2.5;
  let pg=1;
  BL.filter(b=>b.n<=5).forEach(b=>{const h=measure(b,ans);
   if(y+h>11.2){pg++;c=mk('LIGHT','Seite '+pg);hdr(c.s);y=1.45;}
