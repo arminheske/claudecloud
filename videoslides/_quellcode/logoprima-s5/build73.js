@@ -50,12 +50,12 @@ function layoutTask(t,fs){fs=fs||9.5;const CPI=1/(0.0074*fs),LH=fs*0.0187;
   // Optionen: 2 Spalten, wenn kurz
   const twoCol=opts.length>=4&&Math.max(...opts.map(o=>o.length))<=Math.floor((tw/2-0.3)*CPI);
   const ow=twoCol?tw/2:tw;
-  const optLines=opts.map(o=>Math.max(1,Math.ceil(o.length/((ow-0.3)*CPI))));
+  const optLines=opts.map(o=>Math.max(1,Math.ceil(o.length/((ow-0.3)*CPI*1.1))));
   let optH=0;
   if(opts.length){if(twoCol){const rows=Math.ceil(opts.length/2);optH=rows*(LH*1.25);}else optH=optLines.reduce((a,b)=>a+b,0)*LH+opts.length*0.045;optH+=0.04;}
   const bodyH=preH+optH;
   const textBlock=0.44+bodyH;
-  const h=Math.max(textBlock+0.4,imgH+0.3);
+  const h=Math.max(textBlock+(opts.length?0.18:0.4),imgH+0.3);
   return {fig,pic,imgW,imgH,tw,opt,pre,opts,twoCol,ow,optLines,LH,preH,bodyH,h};}
 // ---------- Arbeitsblatt ----------
 function levelBadge(s,T,lv,x,y){
@@ -65,7 +65,7 @@ function levelBadge(s,T,lv,x,y){
   T('von 4',x+1.4,y+0.4,0.95,0.17,{fontSize:7,color:GRAY});}
 function sheet(sh){
   const {s,T}=base(W);hdr(s,T);
-  headline(T,'logoprima+ · Mathematik',[['Arbeitsblatt ',false],[String(sh.n),true]]);
+  headline(T,'logoprima+ · Mathematik',[['Arbeitsblatt '+sh.n,true]]);
   levelBadge(s,T,sh.level,X0+CW-2.35,1.5);
   T('Name:',X0,2.42,0.8,0.3,{fontSize:11,bold:true,color:GRAY,valign:'middle'});s.addShape(S.line,{x:X0+0.8,y:2.68,w:3.0,h:0,line:{color:LINE,width:1.25,dashType:'sysDot'}});
   T('Datum:',X0+4.1,2.42,0.9,0.3,{fontSize:11,bold:true,color:GRAY,valign:'middle'});s.addShape(S.line,{x:X0+5.0,y:2.68,w:2.07,h:0,line:{color:LINE,width:1.25,dashType:'sysDot'}});
@@ -88,8 +88,8 @@ function sheet(sh){
         s.addShape(S.ellipse,{x:ox,y:yy+lh*0.3,w:0.1,h:0.1,fill:{color:W},line:{color:INK,width:0.75}});
         T(o,ox+0.2,yy,l.ow-0.25,lh*l.optLines[k]+0.02,{fontSize:FS,color:INK,lineSpacingMultiple:1.0});});}
     if(l.fig||l.pic)s.addImage({path:IMGDIR+(l.fig||l.pic).file,x:X0+CW-0.2-l.imgW,y:y+0.14,w:l.imgW,h:l.imgH});
-    s.addShape(S.line,{x:X0+1.0,y:y+h-0.14,w:l.tw-0.2,h:0,line:{color:LINE,width:1.25,dashType:'sysDot'}});
-    T('Antwort:',X0+0.25,y+h-0.3,0.75,0.26,{fontSize:9.5,bold:true,color:GRAY,valign:'middle'});
+    if(!l.opts.length){s.addShape(S.line,{x:X0+1.0,y:y+h-0.14,w:l.tw-0.2,h:0,line:{color:LINE,width:1.25,dashType:'sysDot'}});
+    T('Antwort:',X0+0.25,y+h-0.3,0.75,0.26,{fontSize:9.5,bold:true,color:GRAY,valign:'middle'});}
     y+=h+gap;});
   footer(T,'Cleverbox · Mathematik · Arbeitsblatt');}
 // ---------- Trennblatt ----------
