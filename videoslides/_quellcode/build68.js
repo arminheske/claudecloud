@@ -1,0 +1,80 @@
+const pptxgen = require('pptxgenjs');
+const { applyTheme } = require('/root/.claude/skills/synced/a0fffd8f-fbe1-4e7d-aa5e-38324b1aa029_20e1b83a-f4da-4ff7-a932-8b62f50170b1/pptx/scripts/apply_theme.js');
+const BG='FFF7EA',CARD='FFFFFF',INK='2D1B0E',Y='E8C947',O='DA702F',TAN='DC933F',BROWN='8B4A1C',GRAY='7A6A5A',LINE='F0D9B5',CHIP='FCE9C4',GRN='6DBE4B',BLU='5688D2',RED='8B2017';
+const FONT='Poppins';
+const THEME={name:'logoprima',headFontFace:FONT,bodyFontFace:FONT,colors:{dk1:INK,lt1:CARD,dk2:BROWN,lt2:BG,accent1:Y,accent2:O,accent3:CHIP,accent4:GRAY,accent5:GRN,accent6:BLU,hlink:O,folHlink:GRAY}};
+const pres=new pptxgen();pres.defineLayout({name:'A4',width:8.27,height:11.69});pres.layout='A4';
+pres.title='logoprima+ Logikheft – Cover-Ideen';pres.author='Cleverbox';
+const S=pres.ShapeType;
+const mix=(a,b,t)=>{const p=h=>[0,2,4].map(i=>parseInt(h.substr(i,2),16));const A=p(a),B=p(b);return A.map((v,i)=>Math.round(v+(B[i]-v)*t).toString(16).padStart(2,'0')).join('').toUpperCase();};
+function mkSlide(bg){const s=pres.addSlide();s.background={color:bg};
+  const T=(t,x,y,w,h,o={})=>s.addText(t,Object.assign({x,y,w,h,fontFace:FONT,fontSize:16,color:INK,margin:0,valign:'top',isTextBox:true},o));
+  const ln=(x1,y1,x2,y2,color,width,dash)=>{s.addShape(S.line,{x:Math.min(x1,x2),y:Math.min(y1,y2),w:Math.abs(x2-x1),h:Math.abs(y2-y1),flipV:((x2-x1)*(y2-y1))<0,line:{color,width,dashType:dash||'solid',endArrowType:'none'}});};
+  const poly=(pts,fill,lw=1,lc=INK)=>{const xs=pts.map(p=>p[0]),ys=pts.map(p=>p[1]);const x0=Math.min(...xs),y0=Math.min(...ys),w=Math.max(...xs)-x0,h=Math.max(...ys)-y0;
+    s.addShape(S.custGeom,{x:x0,y:y0,w,h,fill:{color:fill},line:{color:lc,width:lw},points:pts.map((p,i)=>i===0?{x:p[0]-x0,y:p[1]-y0,moveTo:true}:{x:p[0]-x0,y:p[1]-y0}).concat([{close:true}])});};
+  const cube=(cx,cy,u,c,lw=1,lc=INK)=>{const dx=u*0.866,dy=u*0.5;
+    poly([[cx,cy-dy],[cx+dx,cy],[cx,cy+dy],[cx-dx,cy]],mix(c,'FFFFFF',0.45),lw,lc);
+    poly([[cx-dx,cy],[cx,cy+dy],[cx,cy+dy+u],[cx-dx,cy+u]],c,lw,lc);
+    poly([[cx+dx,cy],[cx,cy+dy],[cx,cy+dy+u],[cx+dx,cy+u]],mix(c,'000000',0.22),lw,lc);};
+  const foot=(dark)=>{const fg=dark?'C9B8A5':GRAY;s.addShape(S.line,{x:0.6,y:10.75,w:7.07,h:0,line:{color:dark?'5A3F2A':LINE,width:1.25}});
+    T('Cleverbox · Mathematik',0.6,10.95,4,0.3,{fontSize:11,color:fg});T('www.cleverbox.co.at',0.6,11.22,4,0.3,{fontSize:11,bold:true,color:dark?Y:BROWN});
+    s.addImage({path:__dirname+'/qr.png',x:6.82,y:10.9,w:0.85,h:0.85,altText:'QR-Code zu www.cleverbox.co.at'});};
+  const logo=()=>s.addImage({path:__dirname+'/cleverbox-logo.png',x:0.6,y:0.5,w:2.3,h:2.3*0.3709,altText:'cleverbox'});
+  const wm=(x,y,w,h,sz,al)=>T([{text:'logo',options:{color:Y}},{text:'prima+',options:{color:O}}],x,y,w,h,{fontSize:sz,bold:true,valign:'middle',align:al||'left'});
+  return {s,T,ln,poly,cube,foot,logo,wm};}
+// ---------- B: Zahlenrätsel (dunkel) ----------
+(()=>{const {s,T,foot,logo,wm}=mkSlide(INK);
+  s.addShape(S.roundRect,{x:0.45,y:0.4,w:2.6,h:0.95,rectRadius:0.15,fill:{color:'FFFFFF'},line:{color:'FFFFFF',width:0}});logo();s.addShape(S.roundRect,{x:5.35,y:0.62,w:2.32,h:0.42,rectRadius:0.1,fill:{color:Y},line:{color:Y,width:0}});T('Übungsheft · Mathematik',5.35,0.62,2.32,0.42,{fontSize:11,bold:true,color:INK,align:'center',valign:'middle'});
+  wm(0.6,1.7,7.1,1.3,78);T('das denksportcenter',0.65,3.0,7,0.5,{fontSize:20,color:'C9B8A5'});
+  const g=[[2,7,6],[9,5,1],[4,3,null]],ts=1.3,gp=0.14,gx=(8.27-3*ts-2*gp)/2,gy=4.0;
+  g.forEach((row,r)=>row.forEach((v,c)=>{const x=gx+c*(ts+gp),y=gy+r*(ts+gp),q=v===null;
+    s.addShape(S.roundRect,{x,y,w:ts,h:ts,rectRadius:0.14,fill:{color:q?O:((r+c)%2?'4A3322':'3A2616')},line:{color:q?Y:'6B4C33',width:q?3:1}});
+    T(q?'?':String(v),x,y,ts,ts,{fontSize:q?50:44,bold:true,color:q?'FFFFFF':(((r+c)%2)?Y:'F5E3C3'),align:'center',valign:'middle'});}));
+  T('Welche Zahl fehlt?',0.6,gy+3*ts+2*gp+0.25,7.07,0.5,{fontSize:18,bold:true,color:Y,align:'center'});
+  T([{text:'Das ',options:{color:'FFFFFF'}},{text:'Logik-Heft',options:{color:INK,highlight:Y}}],0.6,9.1,7.07,0.8,{fontSize:34,align:'center'});
+  T('50 Arbeitsblätter · 5. bis 9. Schulstufe',0.6,9.95,7.07,0.5,{fontSize:15,color:'C9B8A5',align:'center'});
+  foot(true);})();
+// ---------- C: Würfel-Held ----------
+(()=>{const {s,T,cube,foot,logo,wm,poly}=mkSlide('FFFDF8');
+  logo();s.addShape(S.roundRect,{x:5.35,y:0.62,w:2.32,h:0.42,rectRadius:0.1,fill:{color:INK},line:{color:INK,width:0}});T('Übungsheft · Mathematik',5.35,0.62,2.32,0.42,{fontSize:11,bold:true,color:Y,align:'center',valign:'middle'});
+  s.addShape(S.ellipse,{x:1.1,y:2.0,w:6.1,h:6.1,fill:{color:CHIP},line:{color:CHIP,width:0}});
+  const u=2.1,cx=4.135,cy=4.3,dx=u*0.866,dy=u*0.5;
+  cube(cx,cy,u,O,2.5);
+  s.addText('?',{x:cx-0.8,y:cy-0.55,w:1.6,h:1.1,fontFace:FONT,fontSize:60,bold:true,color:INK,align:'center',valign:'middle',margin:0});
+  [[0.95,6.4,0.5,Y],[7.0,3.5,0.42,GRN],[1.3,3.4,0.36,BLU],[6.7,7.3,0.55,Y],[1.6,7.8,0.4,GRN]].forEach(([x,y,uu,c])=>cube(x,y,uu,c,1.5));
+  wm(0.6,8.2,7.07,1.2,76,'center');T('das denksportcenter',0.6,9.55,7.07,0.45,{fontSize:19,color:GRAY,align:'center'});
+  T([{text:'Das ',options:{color:INK}},{text:'Logik-Heft',options:{color:INK,highlight:Y}},{text:' · 50 Blätter',options:{color:GRAY}}],0.6,10.05,7.07,0.6,{fontSize:20,align:'center'});
+  foot(false);})();
+// ---------- D: Tour (Wegkarte) ----------
+(()=>{const {s,T,ln,foot,logo,wm}=mkSlide('FFF3D6');
+  logo();s.addShape(S.roundRect,{x:5.35,y:0.62,w:2.32,h:0.42,rectRadius:0.1,fill:{color:INK},line:{color:INK,width:0}});T('Übungsheft · Mathematik',5.35,0.62,2.32,0.42,{fontSize:11,bold:true,color:Y,align:'center',valign:'middle'});
+  wm(0.6,1.5,7.1,1.25,74);T('das denksportcenter',0.65,2.75,7,0.5,{fontSize:20,color:GRAY});
+  T([{text:'Die ',options:{color:INK}},{text:'Logik-Tour',options:{color:INK,highlight:Y}}],0.6,3.5,7.1,0.9,{fontSize:38});
+  T('Fünf Schulstufen, 50 Arbeitsblätter: Station für Station zum Denksport-Profi.',0.6,4.4,5.2,0.9,{fontSize:15,color:GRAY,lineSpacingMultiple:1.25});
+  const P=[[1.3,9.0],[3.3,7.8],[1.7,6.6],[4.1,5.7],[6.5,4.9]];
+  for(let i=0;i<4;i++){ln(P[i][0],P[i][1],P[i+1][0],P[i+1][1],'FFFFFF',16);ln(P[i][0],P[i][1],P[i+1][0],P[i+1][1],TAN,3,'dash');}
+  P.forEach(([x,y],i)=>{const col=mix(Y,O,i/4),r=0.62;
+    s.addShape(S.ellipse,{x:x-r,y:y-r,w:2*r,h:2*r,fill:{color:col},line:{color:INK,width:2}});
+    T(String(5+i),x-r,y-r,2*r,2*r,{fontSize:30,bold:true,color:i<2?INK:'FFFFFF',align:'center',valign:'middle'});
+    T('10 Blätter',x-0.8,y+r+0.04,1.6,0.3,{fontSize:10,bold:true,color:BROWN,align:'center'});});
+  s.addShape(S.star5,{x:6.5-0.4,y:4.9-1.5,w:0.8,h:0.8,fill:{color:Y},line:{color:INK,width:2}});
+  s.addShape(S.roundRect,{x:2.15,y:8.75,w:1.7,h:0.46,rectRadius:0.12,fill:{color:INK},line:{color:INK,width:0}});T('Tour starten',2.15,8.75,1.7,0.46,{fontSize:12,bold:true,color:Y,align:'center',valign:'middle'});
+  ['Anfänger','Fortgeschrittene','Profis'].forEach((t,i)=>{const w=[1.45,2.0,1.2][i],x=0.6+[0,1.6,3.75][i];s.addShape(S.roundRect,{x,y:10.0,w,h:0.46,rectRadius:0.12,fill:{color:i===2?O:(i===1?TAN:Y)},line:{color:INK,width:1}});T(t,x,10.0,w,0.46,{fontSize:12,bold:true,color:INK,align:'center',valign:'middle'});});
+  foot(false);})();
+// ---------- E: Glühbirne ----------
+(()=>{const {s,T,ln,cube,foot,logo,wm}=mkSlide('FFF7EA');
+  logo();s.addShape(S.roundRect,{x:5.35,y:0.62,w:2.32,h:0.42,rectRadius:0.1,fill:{color:INK},line:{color:INK,width:0}});T('Übungsheft · Mathematik',5.35,0.62,2.32,0.42,{fontSize:11,bold:true,color:Y,align:'center',valign:'middle'});
+  const cx=4.135,cy=4.2,r=1.9;
+  for(let a=-20;a<=200;a+=28){const t=a*Math.PI/180,r1=r+0.3,r2=r+0.85;ln(cx+r1*Math.cos(t),cy-r1*Math.sin(t),cx+r2*Math.cos(t),cy-r2*Math.sin(t),O,5);}
+  s.addShape(S.ellipse,{x:cx-r,y:cy-r,w:2*r,h:2*r,fill:{color:Y},line:{color:INK,width:3}});
+  s.addShape(S.ellipse,{x:cx-r+0.35,y:cy-r+0.3,w:0.9,h:0.55,fill:{color:'FFF3B0'},line:{color:'FFF3B0',width:0},rotate:-30});
+  s.addShape(S.roundRect,{x:cx-0.85,y:cy+r-0.35,w:1.7,h:0.95,rectRadius:0.1,fill:{color:'D9D3C8'},line:{color:INK,width:3}});
+  [0.18,0.45,0.72].forEach(dy=>ln(cx-0.8,cy+r-0.35+dy,cx+0.8,cy+r-0.35+dy,INK,2));
+  s.addShape(S.roundRect,{x:cx-0.5,y:cy+r+0.62,w:1.0,h:0.28,rectRadius:0.1,fill:{color:INK},line:{color:INK,width:0}});
+  [[0,0,0],[1,0,0],[0,1,0],[0,0,1]].forEach(([i,j,k])=>{const u=0.62,dx=u*0.866,dy=u*0.5;cube(cx+(i-j)*dx,cy-0.25+(i+j)*dy-k*u,u,GRN,1.5);});
+  wm(0.6,7.55,7.07,1.2,76,'center');T('das denksportcenter',0.6,8.85,7.07,0.45,{fontSize:19,color:GRAY,align:'center'});
+  T([{text:'Das ',options:{color:INK}},{text:'Logik-Heft',options:{color:INK,highlight:Y}}],0.6,9.4,7.07,0.75,{fontSize:34,align:'center'});
+  T('50 Arbeitsblätter · 5. bis 9. Schulstufe',0.6,10.2,7.07,0.45,{fontSize:15,color:GRAY,align:'center'});
+  foot(false);})();
+const OUT='/home/user/claudecloud/videoslides/logoprima-heft-cover-ideen-a4.pptx';
+(async()=>{await pres.writeFile({fileName:OUT});await applyTheme(OUT,THEME);console.log('ok');})();
