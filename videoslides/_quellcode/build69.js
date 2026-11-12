@@ -1,11 +1,12 @@
 const pptxgen = require('pptxgenjs');
 const { applyTheme } = require('/root/.claude/skills/synced/a0fffd8f-fbe1-4e7d-aa5e-38324b1aa029_20e1b83a-f4da-4ff7-a932-8b62f50170b1/pptx/scripts/apply_theme.js');
-// Mathematik-Blau (Cleverbox-Serienfarbe)
-const BG='EEF4FD',CARD='FFFFFF',INK='0B1E3A',GREEN='14459A',NEON='BCD6F5',DEEP='0F2A52',GRAY='4A5F7A',LINE='8DBBF2',CHIP='E3EEFB',MID='5B94E0',DEEP2='1B3D75';
+// 
+// logoprima-Farben im Cleverbox-Stil
+const BG='FFF7EA',CARD='FFFFFF',INK='2D1B0E',GREEN='C2571A',NEON='F6DF8C',DEEP='3A2616',GRAY='7A6A5A',LINE='EBC58A',CHIP='FCE9C4',MID='E9B63A',DEEP2='8B4A1C';
 const FONT='Poppins';
-const THEME={name:'Mathebox Blau',headFontFace:FONT,bodyFontFace:FONT,colors:{dk1:INK,lt1:CARD,dk2:DEEP,lt2:BG,accent1:NEON,accent2:GREEN,accent3:CHIP,accent4:GRAY,accent5:'FF7A45',accent6:LINE,hlink:GREEN,folHlink:GRAY}};
+const THEME={name:'logoprima',headFontFace:FONT,bodyFontFace:FONT,colors:{dk1:INK,lt1:CARD,dk2:DEEP,lt2:BG,accent1:NEON,accent2:GREEN,accent3:CHIP,accent4:GRAY,accent5:'DA702F',accent6:LINE,hlink:GREEN,folHlink:GRAY}};
 const pres=new pptxgen();pres.defineLayout({name:'A4',width:8.27,height:11.69});pres.layout='A4';
-pres.title='logoprima+ Logik-Heft – Cover im Cleverbox-Design';pres.author='Cleverbox';
+pres.title='logoprima+ Logik-Heft – Cover (logoprima-Farben, Cleverbox-Stil)';pres.author='Cleverbox';
 const S=pres.ShapeType;
 const mix=(a,b,t)=>{const p=h=>[0,2,4].map(i=>parseInt(h.substr(i,2),16));const A=p(a),B=p(b);return A.map((v,i)=>Math.round(v+(B[i]-v)*t).toString(16).padStart(2,'0')).join('').toUpperCase();};
 function mk(titleSegs,sub){
@@ -75,5 +76,5 @@ const HY=4.95,HH=3.4; // Hero-Karte
   [0.14,0.28,0.42].forEach(dy=>ln(cx-0.45,cy+r-0.2+dy,cx+0.45,cy+r-0.2+dy,DEEP,1));
   [[0,0,0],[1,0,0],[0,1,0],[0,0,1]].forEach(([i,j,k])=>{const u=0.38,dx=u*0.866,dy=u*0.5;cube(cx+(i-j)*dx,cy-0.15+(i+j)*dy-k*u,u,MID);});
   T('Denksport für alle Schulstufen',0.6,HY+HH-0.4,7.07,0.35,{fontSize:12,bold:true,color:GREEN,align:'center'});})();
-const OUT='/home/user/claudecloud/videoslides/logoprima-heft-cover-cleverbox-design-a4.pptx';
+const OUT='/home/user/claudecloud/videoslides/logoprima-heft-cover-logoprima-farben-a4.pptx';
 (async()=>{await pres.writeFile({fileName:OUT});await applyTheme(OUT,THEME);console.log('ok');})();
