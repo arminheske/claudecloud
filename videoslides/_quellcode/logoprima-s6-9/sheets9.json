@@ -1,1 +1,940 @@
-[{"n": 1, "level": 1, "tasks": [{"page": 1, "idx": 2, "level": 1, "title": "Eine Pyramide", "paras": ["Wie groß ist das Volumen einer Pyramide mit quadratischer Grundfläche, wenn die Höhe 9 m und die Seitenkante 4 m beträgt?"], "img": [{"file": "img9/p01_2_0.png", "w": 1.378, "h": 0.919}], "ans": "48 m³", "buggy": false, "_pn": 0, "h": 1.25}, {"page": 1, "idx": 3, "level": 1, "title": "Sinnvolles Runden!", "paras": ["Bei welcher Angabe ist das Runden sinnvoll?", "Die Rettung ist unter dem Notruf 144 erreichbar.", "Im Urlaub fuhren wir 3511 km.", "Anita wurde 1972 geboren.", "Das Auto der Familie Klein ist für 7 Personen zugelassen."], "img": [{"file": "img9/p01_3_0.png", "w": 1.378, "h": 0.999}], "ans": "Im Urlaub fuhren wir 3511 km.", "buggy": false, "_pn": 0, "h": 1.81}, {"page": 5, "idx": 1, "level": 1, "title": "Flächenvergleich", "paras": ["Welche Aussage über die beiden Figuren ist wahr?", "Die Flächeninhalte sind gleich, die Umfänge verschieden.", "Die Flächeninhalte und die Umfänge sind verschieden.", "Die Flächeninhalte und die Umfänge sind gleich.", "Die Flächeninhalte sind verschieden, die Umfänge gleich."], "img": [{"file": "img9/p05_1_0.png", "w": 2.756, "h": 1.5}], "ans": "Die Flächeninhalte sind verschieden, die Umfänge gleich.", "buggy": false, "_pn": 4, "h": 2.37}, {"page": 5, "idx": 3, "level": 1, "title": "Fortschritt am PC", "paras": ["Yvonne lässt ihren PC mit einem Programm durchsuchen. Der Fortschrittsbalken zeigt ihr, wie weit das Programm ist. Außerdem wird der Fortschritt in Zahlen angegeben. Nur fehlt in unserer Grafik leider eine Größe. Welcher Wert ist der passende?", "342 GB", "512 GB", "644 GB", "1.024 GB"], "img": [{"file": "img9/p05_3_0.png", "w": 2.756, "h": 0.802}], "ans": "342 GB", "buggy": false, "_pn": 4, "h": 2.1}]}, {"n": 2, "level": 1, "tasks": [{"page": 1, "idx": 4, "level": 1, "title": "Schirennen", "paras": ["Kurt braucht für ein Schirennen 7 Minuten 56 Sekunden.", "Sabine benötigt 6 Minuten 54 Sekunden.", "Welche Aussage ist richtig?", "Sabine ist um 1,12 Minuten schneller.", "Sabine ist um 112 Sekunden schneller.", "Kurt ist um 62 Sekunden langsamer.", "Kurt ist um 1,2 Minuten langsamer"], "img": [{"file": "img9/p01_4_0.png", "w": 1.378, "h": 0.919}], "ans": "Kurt ist um 62 Sekunden langsamer.", "buggy": false, "_pn": 0, "h": 2.25}, {"page": 2, "idx": 4, "level": 1, "title": "Zwei Freunde", "paras": ["Zwei Freunde gehen von einem Punkt aus in verschiedene Richtungen. Bernd geht 480 m nach Norden und Eugen geht 550 m nach Süden. Wie weit sind sie von einander entfernt?"], "img": [{"file": "img9/p02_4_0.png", "w": 1.378, "h": 0.919}], "ans": "1030 m", "buggy": false, "_pn": 1, "h": 1.44}, {"page": 3, "idx": 2, "level": 1, "title": "Division", "paras": ["Setze den Satz fort!", "Jede Zahl durch sich selbst dividiert ergibt ....", "die Zahl selbst.", "0.", "1.", "keine Lösung."], "img": [{"file": "img9/p03_2_0.png", "w": 1.378, "h": 0.919}], "ans": "1.", "buggy": false, "_pn": 2, "h": 2.17}, {"page": 4, "idx": 1, "level": 1, "title": "Welche Zahl?", "paras": ["Welche Zahl gehört in das grüne Kästchen?"], "img": [{"file": "img9/p04_1_0.png", "w": 2.756, "h": 1.837}], "ans": "287", "buggy": false, "_pn": 3, "h": 1.8}]}, {"n": 3, "level": 2, "tasks": [{"page": 6, "idx": 1, "level": 2, "title": "Fassungsvermögen", "paras": ["In welchen Behälter passen 544 Liter Apfelsaft?", "Fass mit 5,04 hl Fassungsvermögen", "Fass mit 60 dm³ Fassungsvermögen", "Fass mit 1,9 m³ Fassungsvermögen", "Fass mit 170 cm³ Fassungsvermögen"], "img": [{"file": "img9/p06_1_0.png", "w": 1.378, "h": 0.919}], "ans": "Fass mit 1,9 m³ Fassungsvermögen", "buggy": false, "_pn": 5, "h": 1.81}, {"page": 6, "idx": 2, "level": 2, "title": "Primzahlen", "paras": ["Wie viele der hier gezeigten Zahlen sind Primzahlen?"], "img": [{"file": "img9/p06_2_0.png", "w": 2.756, "h": 1.188}], "ans": "5", "buggy": false, "_pn": 5, "h": 1.27}, {"page": 6, "idx": 3, "level": 2, "title": "Ein Parallelogramm", "paras": ["Wie groß ist der Flächeninhalt des färbigen Parallelogramms?"], "img": [{"file": "img9/p06_3_0.png", "w": 2.756, "h": 1.837}], "ans": "20 cm²", "buggy": false, "_pn": 5, "h": 1.8}, {"page": 6, "idx": 4, "level": 2, "title": "Um die Ecke gerechnet...", "paras": ["Beim Spiel \"Um die Ecke rechnen\" gelten folgende Regeln: Man beginnt bei einer beliebigen Ecke (Zahl) und führt der Reihe nach die Rechnungen durch, bis man wieder bei der Ausgangszahl angelangt ist. Die Richtung kann man sich aussuchen. Dabei wird immer mit dem vorigen Ergebnis weiter gerechnet.", "Welches ist das NIEDRIGSTE Ergebnis, das man mit dieser Angabe (Bild) erreichen kann?"], "img": [{"file": "img9/p06_4_0.png", "w": 2.756, "h": 1.378}], "ans": "5", "buggy": false, "_pn": 5, "h": 2.41}]}, {"n": 4, "level": 2, "tasks": [{"page": 7, "idx": 2, "level": 2, "title": "Ein Würfel wird bearbeitet...", "paras": ["Aus einem Würfel wurde der im Bild gezeigte Körper erzeugt. Welcher Bruchteil des ursprünglichen Würfels wurde entfernt?", "1 Viertel", "3 Achtel", "1 Sechstel", "1 Siebentel"], "img": [{"file": "img9/p07_2_0.png", "w": 2.756, "h": 1.837}], "ans": "1 Viertel", "buggy": false, "_pn": 6, "h": 1.8}, {"page": 9, "idx": 2, "level": 2, "title": "Leckere Rouladen", "paras": ["Lenas Mutter hat sich bereit erklärt, für das Schulfest möglichst viele Biskuitrouladen zu backen. Als sie mit dem Backen beginnen will, haben die Lebensmittelläden bereits geschlossen. In ihrem Lebensmittelvorrat finden sich 29 Eier, 75 dag Zucker, 1,5 kg Mehl und Marillenmarmelade für mindestens 12 Rouladen. Wie viele Rouladen kann Sonja höchstens zum Schulfest mitbringen, wenn die Mutter folgendes Rezept verwendet?"], "img": [{"file": "img9/p09_2_0.png", "w": 2.756, "h": 0.9}], "ans": "7", "buggy": false, "_pn": 8, "h": 2.37}, {"page": 9, "idx": 4, "level": 2, "title": "Die Pralinenschachtel", "paras": ["Frank hat eine Schachtel Pralinen. In der Schachtel sind x Reihen, in jeder Reihe sind y Pralinen.", "Seine Schwester stibitzt die äußere Reihe rundherum.", "Wie viele Pralinen hat sie genommen?", "x + y", "2x + 2y", "2x + 2y - 2", "2x + 2y - 4"], "img": [{"file": "img9/p09_4_0.png", "w": 1.378, "h": 0.919}], "ans": "2x + 2y - 4", "buggy": false, "_pn": 8, "h": 1.98}, {"page": 13, "idx": 1, "level": 2, "title": "Vorrangregeln", "paras": ["Welche der folgenden Rechnungen hat das größte Ergebnis?", "17,5 · 2 + 6 · 2,5 =", "62,5 - 15 : 2 =", "56 - 14 : 4 + 0,5 =", "37 + (16,5 - 9) · 2 ="], "img": [{"file": "img9/p13_1_0.png", "w": 1.378, "h": 0.919}], "ans": "62,5 - 15 : 2 =", "buggy": false, "_pn": 12, "h": 1.35}]}, {"n": 5, "level": 2, "tasks": [{"page": 7, "idx": 4, "level": 2, "title": "Oberfläche des Würfels", "paras": ["Was passiert mit der Oberfläche eines Würfels, wenn man die Kantenlänge verdoppelt?"], "img": [{"file": "img9/p07_4_0.png", "w": 1.378, "h": 1.475}], "ans": "Die Oberfläche wird  vervierfacht.", "buggy": false, "_pn": 6, "h": 1.52}, {"page": 9, "idx": 1, "level": 2, "title": "Fehlersuche", "paras": ["Thomas fehlt beim Lösen von Gleichungen noch etwas die Sicherheit. In welcher Zeile hat er hier den ersten Fehler gemacht?", "In der 2. Zeile", "In der 3. Zeile", "In der 4. Zeile", "Diese Gleichung ist fehlerfrei."], "img": [{"file": "img9/p09_1_0.png", "w": 2.756, "h": 1.837}], "ans": "In der 2. Zeile", "buggy": false, "_pn": 8, "h": 2.18}, {"page": 9, "idx": 3, "level": 2, "title": "Stimmt die Spiegelung?", "paras": ["Wurde die abgebildete Spiegelung richtig durchgeführt?", "Ja, es stimmt alles.", "Nein, die Abstände von der Spiegelachse sind falsch.", "Nein, die Winkel der Verbindungsstrecken auf die Spiegelachse sind falsch.", "Nein, die Abstände und die Winkel sind falsch."], "img": [{"file": "img9/p09_3_0.png", "w": 2.756, "h": 1.837}], "ans": "Nein, die Abstände von der Spiegelachse sind falsch.", "buggy": false, "_pn": 8, "h": 2.16}, {"page": 10, "idx": 1, "level": 2, "title": "Frühstückspension", "paras": ["18 Personen übernachten in einer Frühstückspension. Die Preise: 30 Euro für Erwachsene und 12 Euro für Kinder. Um wie viele Kinder sind es mehr als Erwachsene, wenn alle zusammen 306 Euro bezahlen?"], "img": [{"file": "img9/p10_1_0.png", "w": 1.378, "h": 0.919}], "ans": "8", "buggy": false, "_pn": 9, "h": 1.44}]}, {"n": 6, "level": 3, "tasks": [{"page": 15, "idx": 4, "level": 3, "title": "Wie viele Nullen...", "paras": ["...sind zum Anschreiben der Zahl 9 Zehntausendstel als Dezimalzahl notwendig?"], "img": [{"file": "img9/p15_4_0.png", "w": 1.378, "h": 0.919}], "ans": "4", "buggy": false, "_pn": 14, "h": 1.25}, {"page": 16, "idx": 1, "level": 3, "title": "Drei Zahlen", "paras": ["Drei Zahlen ergeben zusammen 50.000. Wenn du die kleinste der drei Zahlen vervierfachst, erhältst du die größte der Zahlen, nämlich 31.716.", "Wie heißt die mittlere Zahl?"], "img": [{"file": "img9/p16_1_0.png", "w": 1.378, "h": 0.919}], "ans": "10.355", "buggy": false, "_pn": 15, "h": 1.47}, {"page": 17, "idx": 3, "level": 3, "title": "Andere Länder, andere Sitten...", "paras": ["Im angloamerikanischen Raum wird die Temperatur in Grad Fahrenheit gemessen. Für die Umrechnung von Grad Celsius (x) in Grad Fahrenheit (y) gilt die Formel:", "y = 1,8x + 32", "Mit welcher Formel kann man von Grad Fahrenheit in Grad Celsius umrechnen?", "x = y : (1,8 - 32)", "x = y : 1,8 - 32", "x = y - 32 : 1,8", "x = (y - 32) : 1,8"], "img": [{"file": "img9/p17_3_0.png", "w": 1.378, "h": 0.919}], "ans": "x = (y - 32) : 1,8", "buggy": false, "_pn": 16, "h": 2.35}, {"page": 17, "idx": 4, "level": 3, "title": "Quadrat", "paras": ["Ein Quadrat hat 16 cm Seitenlänge.", "Jede Seite wird um 4 cm verlängert.", "Um wie viel % ändert sich der Flächeninhalt des Quadrats?"], "img": [{"file": "img9/p17_4_0.png", "w": 1.378, "h": 1.372}], "ans": "56,25 %", "buggy": false, "_pn": 16, "h": 1.51}]}, {"n": 7, "level": 3, "tasks": [{"page": 14, "idx": 1, "level": 3, "title": "Koordinaten", "paras": ["Welcher der folgenden Punkte liegt im 2. Quadranten?", "A (2/-3)", "B (1/5)", "C (6/-2)", "D (-2/1)"], "img": [{"file": "img9/p14_1_0.png", "w": 1.378, "h": 0.919}], "ans": "D (-2/1)", "buggy": false, "_pn": 13, "h": 1.35}, {"page": 15, "idx": 2, "level": 3, "title": "Von Quadraten und Rechtecken", "paras": ["Wie viele der folgenden Aussagen sind richtig?", "a) Wenn man die Seitenlänge eines Quadrates verdoppelt, verdoppelt sich auch der Flächeninhalt.", "b) Wenn man die Länge und Breite eines Rechtecks verdoppelt, verdoppelt sich der Umfang.", "c) Wenn man die Länge einer Seite verdoppelt, verdoppelt sich der Umfang des Rechtecks."], "img": [{"file": "img9/p15_2_0.png", "w": 1.378, "h": 1.372}], "ans": "1", "buggy": false, "_pn": 14, "h": 2.29}, {"page": 16, "idx": 3, "level": 3, "title": "Körpergröße", "paras": ["Verena ist 1,3 m groß. Wäre sie um 35 cm kleiner, so wäre sie halb so groß wie ihr Vater.", "Wie groß ist ihr Vater?"], "img": [{"file": "img9/p16_3_0.png", "w": 1.378, "h": 0.919}], "ans": "1,90 m", "buggy": false, "_pn": 15, "h": 1.47}, {"page": 17, "idx": 2, "level": 3, "title": "D ermitteln", "paras": ["Die Summe jeder vollständigen Zeile und jeder Spalte ist gleich. Welcher Wert ergibt sich demnach für D?"], "img": [{"file": "img9/p17_2_0.png", "w": 2.756, "h": 1.837}], "ans": "3", "buggy": false, "_pn": 16, "h": 1.8}]}, {"n": 8, "level": 3, "tasks": [{"page": 14, "idx": 4, "level": 3, "title": "Quader zerschneiden...", "paras": ["Oben skizzierter Quader soll in möglichst wenige gleich große Würfel zerschnitten werden. Wie viele Würfel ergibt das?"], "img": [{"file": "img9/p14_4_0.png", "w": 2.756, "h": 1.396}], "ans": "24", "buggy": false, "_pn": 13, "h": 1.44}, {"page": 15, "idx": 1, "level": 3, "title": "Dreiecksfläche", "paras": ["Welchen Flächeninhalt hat das Dreieck XYZ, wenn das Rechteck ABCD einen Flächeninhalt von 22 cm² hat?"], "img": [{"file": "img9/p15_1_0.png", "w": 2.756, "h": 1.837}], "ans": "5,5 cm²", "buggy": false, "_pn": 14, "h": 1.8}, {"page": 16, "idx": 4, "level": 3, "title": "Zwei Quadrate", "paras": ["Von den beiden Quadraten werden Teile abgeschnitten. Welche verbliebene Fläche ist größer?", "A und B sind gleich groß.", "A ist um 16 cm² größer als B.", "B ist um 16 cm² größer als A.", "Eine der beiden ist um 4 cm² größer als die andere."], "img": [{"file": "img9/p16_4_0.png", "w": 2.756, "h": 1.372}], "ans": "B ist um 16 cm² größer als A.", "buggy": false, "_pn": 15, "h": 2.18}, {"page": 18, "idx": 1, "level": 3, "title": "Wieviel g?", "paras": ["Von 3 kg eines Materials werden zwei Drittel entfernt. Vom Rest entfernt man zwei Fünftel, von der dann noch verbliebenen Menge drei Viertel.  Wieviel g des Materials bleiben übrig?"], "img": [{"file": "img9/p18_1_0.png", "w": 1.378, "h": 0.919}], "ans": "zwischen 100 g und 200 g", "buggy": false, "_pn": 17, "h": 1.44}]}, {"n": 9, "level": 4, "tasks": [{"page": 19, "idx": 3, "level": 4, "title": "Welcher Würfel...", "paras": ["...kann nicht aus dem abgebildeten Würfelnetz gefaltet werden?"], "img": [{"file": "img9/p19_3_0.png", "w": 2.756, "h": 1.237}], "ans": "A", "buggy": false, "_pn": 18, "h": 1.31}, {"page": 20, "idx": 1, "level": 4, "title": "Von Quadraten...", "paras": ["Ein Rechteck wird wie in der Skizze abgebildet in 8 Quadrate unterteilt. Die Seitenlänge der roten Quadrate (A) ist 10 cm. Welchen Flächeninhalt hat das Rechteck?"], "img": [{"file": "img9/p20_1_0.png", "w": 2.756, "h": 1.837}], "ans": "1020 cm²", "buggy": false, "_pn": 19, "h": 1.8}, {"page": 20, "idx": 3, "level": 4, "title": "Winkelgröße", "paras": ["Wie groß ist der markierte Winkel?"], "img": [{"file": "img9/p20_3_0.png", "w": 2.756, "h": 2.756}], "ans": "120°", "buggy": false, "_pn": 19, "h": 2.55}, {"page": 21, "idx": 3, "level": 4, "title": "Balkenwaage", "paras": ["Wie viele orangefarbene Kreise werden benötigt, um einen roten Kreis aufzuwiegen."], "img": [{"file": "img9/p21_3_0.png", "w": 2.756, "h": 1.837}], "ans": "6", "buggy": false, "_pn": 20, "h": 1.8}]}, {"n": 10, "level": 4, "tasks": [{"page": 19, "idx": 1, "level": 4, "title": "Entfernung vom Ursprung", "paras": ["Welcher Punkt liegt am nähesten beim Ursprung?", "A", "B", "C", "Es sind mehrere Punkte gleich weit entfernt."], "img": [{"file": "img9/p19_1_0.png", "w": 2.756, "h": 1.837}], "ans": "C", "buggy": false, "_pn": 18, "h": 1.81}, {"page": 21, "idx": 1, "level": 4, "title": "Wie viele Sprünge?", "paras": ["Bei der Heuschrecken-Weltmeisterschaft soll mit möglichst wenigen Sprüngen eine Distanz von 7 m und 80 cm zurückgelegt werden. Flip schafft beim ersten Sprung 4 Meter, beim zweiten 2 Meter, beim dritten 1 Meter und so fort. Jeder Sprung geht halb so weit wie der vorige. Nach wie vielen Sprüngen hat Flip die 7 m 80 cm absolviert?", "6", "12", "24", "Nie"], "img": [{"file": "img9/p21_1_0.png", "w": 1.378, "h": 0.919}], "ans": "6", "buggy": false, "_pn": 20, "h": 2.1}, {"page": 22, "idx": 1, "level": 4, "title": "Wettläufe", "paras": ["Nathalie schlägt Peter bei einem Rennen über 100 m um 4 Meter. Peter wiederum schlägt Vanessa auf 100 m um 5 Meter. Mit wie vielen Metern Vorsprung gewinnt Nathalie ein 100m-Rennen gegen Vanessa?"], "img": [{"file": "img9/p22_1_0.png", "w": 1.378, "h": 0.919}], "ans": "8,8 m", "buggy": false, "_pn": 21, "h": 1.44}, {"page": 22, "idx": 3, "level": 4, "title": "Aufstellung von Verkehrszeichen", "paras": ["Zur Aufstellung von Verkehrszeichen brauchen 12 ArbeiterInnen 96 Stunden. Nach 36 Arbeitsstunden werden 3 zusätzliche ArbeiterInnen eingesetzt, die den anderen helfen. In welcher Gesamtzeit wird die Arbeit durchgeführt?"], "img": [{"file": "img9/p22_3_0.png", "w": 1.378, "h": 0.919}], "ans": "84 Stunden", "buggy": false, "_pn": 21, "h": 1.62}]}]
+[
+ {
+  "n": 1,
+  "level": 1,
+  "tasks": [
+   {
+    "page": 1,
+    "idx": 2,
+    "level": 1,
+    "title": "Eine Pyramide",
+    "paras": [
+     "Wie groß ist das Volumen einer Pyramide mit quadratischer Grundfläche, wenn die Höhe 9 m und die Seitenkante 4 m beträgt?"
+    ],
+    "img": [
+     {
+      "file": "img9/p01_2_0.png",
+      "w": 1.378,
+      "h": 0.919
+     }
+    ],
+    "ans": "48 m³",
+    "buggy": false,
+    "_pn": 0,
+    "h": 1.25
+   },
+   {
+    "page": 1,
+    "idx": 3,
+    "level": 1,
+    "title": "Sinnvolles Runden!",
+    "paras": [
+     "Bei welcher Angabe ist das Runden sinnvoll?",
+     "Die Rettung ist unter dem Notruf 144 erreichbar.",
+     "Im Urlaub fuhren wir 3511 km.",
+     "Anita wurde 1972 geboren.",
+     "Das Auto der Familie Klein ist für 7 Personen zugelassen."
+    ],
+    "img": [
+     {
+      "file": "img9/p01_3_0.png",
+      "w": 1.378,
+      "h": 0.999
+     }
+    ],
+    "ans": "Im Urlaub fuhren wir 3511 km.",
+    "buggy": false,
+    "_pn": 0,
+    "h": 1.81
+   },
+   {
+    "page": 5,
+    "idx": 1,
+    "level": 1,
+    "title": "Flächenvergleich",
+    "paras": [
+     "Welche Aussage über die beiden Figuren ist wahr?",
+     "Die Flächeninhalte sind gleich, die Umfänge verschieden.",
+     "Die Flächeninhalte und die Umfänge sind verschieden.",
+     "Die Flächeninhalte und die Umfänge sind gleich.",
+     "Die Flächeninhalte sind verschieden, die Umfänge gleich."
+    ],
+    "img": [
+     {
+      "file": "img9/p05_1_0.png",
+      "w": 2.756,
+      "h": 1.5
+     }
+    ],
+    "ans": "Die Flächeninhalte sind verschieden, die Umfänge gleich.",
+    "buggy": false,
+    "_pn": 4,
+    "h": 2.37
+   },
+   {
+    "page": 5,
+    "idx": 3,
+    "level": 1,
+    "title": "Fortschritt am PC",
+    "paras": [
+     "Yvonne lässt ihren PC mit einem Programm durchsuchen. Der Fortschrittsbalken zeigt ihr, wie weit das Programm ist. Außerdem wird der Fortschritt in Zahlen angegeben. Nur fehlt in unserer Grafik leider eine Größe. Welcher Wert ist der passende?",
+     "342 GB",
+     "512 GB",
+     "644 GB",
+     "1.024 GB"
+    ],
+    "img": [
+     {
+      "file": "img9/p05_3_0.png",
+      "w": 2.756,
+      "h": 0.802
+     }
+    ],
+    "ans": "342 GB",
+    "buggy": false,
+    "_pn": 4,
+    "h": 2.1
+   }
+  ]
+ },
+ {
+  "n": 2,
+  "level": 1,
+  "tasks": [
+   {
+    "page": 1,
+    "idx": 4,
+    "level": 1,
+    "title": "Schirennen",
+    "paras": [
+     "Kurt braucht für ein Schirennen 7 Minuten 56 Sekunden.",
+     "Sabine benötigt 6 Minuten 54 Sekunden.",
+     "Welche Aussage ist richtig?",
+     "Sabine ist um 1,12 Minuten schneller.",
+     "Sabine ist um 112 Sekunden schneller.",
+     "Kurt ist um 62 Sekunden langsamer.",
+     "Kurt ist um 1,2 Minuten langsamer"
+    ],
+    "img": [
+     {
+      "file": "img9/p01_4_0.png",
+      "w": 1.378,
+      "h": 0.919
+     }
+    ],
+    "ans": "Kurt ist um 62 Sekunden langsamer.",
+    "buggy": false,
+    "_pn": 0,
+    "h": 2.25
+   },
+   {
+    "page": 2,
+    "idx": 4,
+    "level": 1,
+    "title": "Zwei Freunde",
+    "paras": [
+     "Zwei Freunde gehen von einem Punkt aus in verschiedene Richtungen. Bernd geht 480 m nach Norden und Eugen geht 550 m nach Süden. Wie weit sind sie von einander entfernt?"
+    ],
+    "img": [
+     {
+      "file": "img9/p02_4_0.png",
+      "w": 1.378,
+      "h": 0.919
+     }
+    ],
+    "ans": "1030 m",
+    "buggy": false,
+    "_pn": 1,
+    "h": 1.44
+   },
+   {
+    "page": 3,
+    "idx": 2,
+    "level": 1,
+    "title": "Division",
+    "paras": [
+     "Setze den Satz fort!",
+     "Jede Zahl durch sich selbst dividiert ergibt ....",
+     "die Zahl selbst.",
+     "0.",
+     "1.",
+     "keine Lösung."
+    ],
+    "img": [
+     {
+      "file": "img9/p03_2_0.png",
+      "w": 1.378,
+      "h": 0.919
+     }
+    ],
+    "ans": "1.",
+    "buggy": false,
+    "_pn": 2,
+    "h": 2.17
+   },
+   {
+    "page": 4,
+    "idx": 1,
+    "level": 1,
+    "title": "Welche Zahl?",
+    "paras": [
+     "Welche Zahl gehört in das grüne Kästchen?"
+    ],
+    "img": [
+     {
+      "file": "img9/p04_1_0.png",
+      "w": 2.756,
+      "h": 1.837
+     }
+    ],
+    "ans": "287",
+    "buggy": false,
+    "_pn": 3,
+    "h": 1.8
+   }
+  ]
+ },
+ {
+  "n": 3,
+  "level": 2,
+  "tasks": [
+   {
+    "page": 6,
+    "idx": 1,
+    "level": 2,
+    "title": "Fassungsvermögen",
+    "paras": [
+     "In welchen Behälter passen 544 Liter Apfelsaft?",
+     "Fass mit 5,04 hl Fassungsvermögen",
+     "Fass mit 60 dm³ Fassungsvermögen",
+     "Fass mit 1,9 m³ Fassungsvermögen",
+     "Fass mit 170 cm³ Fassungsvermögen"
+    ],
+    "img": [
+     {
+      "file": "img9/p06_1_0.png",
+      "w": 1.378,
+      "h": 0.919
+     }
+    ],
+    "ans": "Fass mit 1,9 m³ Fassungsvermögen",
+    "buggy": false,
+    "_pn": 5,
+    "h": 1.81
+   },
+   {
+    "page": 6,
+    "idx": 2,
+    "level": 2,
+    "title": "Primzahlen",
+    "paras": [
+     "Wie viele der hier gezeigten Zahlen sind Primzahlen?"
+    ],
+    "img": [
+     {
+      "file": "img9/p06_2_0.png",
+      "w": 2.756,
+      "h": 1.188
+     }
+    ],
+    "ans": "5",
+    "buggy": false,
+    "_pn": 5,
+    "h": 1.27
+   },
+   {
+    "page": 6,
+    "idx": 3,
+    "level": 2,
+    "title": "Ein Parallelogramm",
+    "paras": [
+     "Wie groß ist der Flächeninhalt des färbigen Parallelogramms?"
+    ],
+    "img": [
+     {
+      "file": "img9/p06_3_0.png",
+      "w": 2.756,
+      "h": 1.837
+     }
+    ],
+    "ans": "20 cm²",
+    "buggy": false,
+    "_pn": 5,
+    "h": 1.8
+   },
+   {
+    "page": 6,
+    "idx": 4,
+    "level": 2,
+    "title": "Um die Ecke gerechnet...",
+    "paras": [
+     "Beim Spiel \"Um die Ecke rechnen\" gelten folgende Regeln: Man beginnt bei einer beliebigen Ecke (Zahl) und führt der Reihe nach die Rechnungen durch, bis man wieder bei der Ausgangszahl angelangt ist. Die Richtung kann man sich aussuchen. Dabei wird immer mit dem vorigen Ergebnis weiter gerechnet.",
+     "Welches ist das NIEDRIGSTE Ergebnis, das man mit dieser Angabe (Bild) erreichen kann?"
+    ],
+    "img": [
+     {
+      "file": "img9/p06_4_0.png",
+      "w": 2.756,
+      "h": 1.378
+     }
+    ],
+    "ans": "5",
+    "buggy": false,
+    "_pn": 5,
+    "h": 2.41
+   }
+  ]
+ },
+ {
+  "n": 4,
+  "level": 2,
+  "tasks": [
+   {
+    "page": 7,
+    "idx": 2,
+    "level": 2,
+    "title": "Ein Würfel wird bearbeitet...",
+    "paras": [
+     "Aus einem Würfel wurde der im Bild gezeigte Körper erzeugt. Welcher Bruchteil des ursprünglichen Würfels wurde entfernt?",
+     "1 Viertel",
+     "3 Achtel",
+     "1 Sechstel",
+     "1 Siebentel"
+    ],
+    "img": [
+     {
+      "file": "img9/p07_2_0.png",
+      "w": 2.756,
+      "h": 1.837
+     }
+    ],
+    "ans": "1 Viertel",
+    "buggy": false,
+    "_pn": 6,
+    "h": 1.8
+   },
+   {
+    "page": 9,
+    "idx": 2,
+    "level": 2,
+    "title": "Leckere Rouladen",
+    "paras": [
+     "Lenas Mutter hat sich bereit erklärt, für das Schulfest möglichst viele Biskuitrouladen zu backen. Als sie mit dem Backen beginnen will, haben die Lebensmittelläden bereits geschlossen. In ihrem Lebensmittelvorrat finden sich 29 Eier, 75 dag Zucker, 1,5 kg Mehl und Marillenmarmelade für mindestens 12 Rouladen. Wie viele Rouladen kann Sonja höchstens zum Schulfest mitbringen, wenn die Mutter folgendes Rezept verwendet?"
+    ],
+    "img": [
+     {
+      "file": "img9/p09_2_0.png",
+      "w": 2.756,
+      "h": 0.9
+     }
+    ],
+    "ans": "7",
+    "buggy": false,
+    "_pn": 8,
+    "h": 2.37
+   },
+   {
+    "page": 9,
+    "idx": 4,
+    "level": 2,
+    "title": "Die Pralinenschachtel",
+    "paras": [
+     "Frank hat eine Schachtel Pralinen. In der Schachtel sind x Reihen, in jeder Reihe sind y Pralinen.",
+     "Seine Schwester stibitzt die äußere Reihe rundherum.",
+     "Wie viele Pralinen hat sie genommen?",
+     "x + y",
+     "2x + 2y",
+     "2x + 2y - 2",
+     "2x + 2y - 4"
+    ],
+    "img": [
+     {
+      "file": "img9/p09_4_0.png",
+      "w": 1.378,
+      "h": 0.919
+     }
+    ],
+    "ans": "2x + 2y - 4",
+    "buggy": false,
+    "_pn": 8,
+    "h": 1.98
+   },
+   {
+    "page": 13,
+    "idx": 1,
+    "level": 2,
+    "title": "Vorrangregeln",
+    "paras": [
+     "Welche der folgenden Rechnungen hat das größte Ergebnis?",
+     "17,5 · 2 + 6 · 2,5 =",
+     "62,5 - 15 : 2 =",
+     "56 - 14 : 4 + 0,5 =",
+     "37 + (16,5 - 9) · 2 ="
+    ],
+    "img": [
+     {
+      "file": "img9/p13_1_0.png",
+      "w": 1.378,
+      "h": 0.919
+     }
+    ],
+    "ans": "62,5 - 15 : 2 =",
+    "buggy": false,
+    "_pn": 12,
+    "h": 1.35
+   }
+  ]
+ },
+ {
+  "n": 5,
+  "level": 2,
+  "tasks": [
+   {
+    "page": 7,
+    "idx": 4,
+    "level": 2,
+    "title": "Oberfläche des Würfels",
+    "paras": [
+     "Was passiert mit der Oberfläche eines Würfels, wenn man die Kantenlänge verdoppelt?"
+    ],
+    "img": [
+     {
+      "file": "img9/p07_4_0.png",
+      "w": 1.378,
+      "h": 1.475
+     }
+    ],
+    "ans": "Die Oberfläche wird  vervierfacht.",
+    "buggy": false,
+    "_pn": 6,
+    "h": 1.52
+   },
+   {
+    "page": 9,
+    "idx": 1,
+    "level": 2,
+    "title": "Fehlersuche",
+    "paras": [
+     "Thomas fehlt beim Lösen von Gleichungen noch etwas die Sicherheit. In welcher Zeile hat er hier den ersten Fehler gemacht?",
+     "In der 2. Zeile",
+     "In der 3. Zeile",
+     "In der 4. Zeile",
+     "Diese Gleichung ist fehlerfrei."
+    ],
+    "img": [
+     {
+      "file": "img9/p09_1_0.png",
+      "w": 2.756,
+      "h": 1.837
+     }
+    ],
+    "ans": "In der 2. Zeile",
+    "buggy": false,
+    "_pn": 8,
+    "h": 2.18
+   },
+   {
+    "page": 9,
+    "idx": 3,
+    "level": 2,
+    "title": "Stimmt die Spiegelung?",
+    "paras": [
+     "Wurde die abgebildete Spiegelung richtig durchgeführt?",
+     "Ja, es stimmt alles.",
+     "Nein, die Abstände von der Spiegelachse sind falsch.",
+     "Nein, die Winkel der Verbindungsstrecken auf die Spiegelachse sind falsch.",
+     "Nein, die Abstände und die Winkel sind falsch."
+    ],
+    "img": [
+     {
+      "file": "img9/p09_3_0.png",
+      "w": 2.756,
+      "h": 1.837
+     }
+    ],
+    "ans": "Nein, die Abstände von der Spiegelachse sind falsch.",
+    "buggy": false,
+    "_pn": 8,
+    "h": 2.16
+   },
+   {
+    "page": 10,
+    "idx": 1,
+    "level": 2,
+    "title": "Frühstückspension",
+    "paras": [
+     "18 Personen übernachten in einer Frühstückspension. Die Preise: 30 Euro für Erwachsene und 12 Euro für Kinder. Um wie viele Kinder sind es mehr als Erwachsene, wenn alle zusammen 306 Euro bezahlen?"
+    ],
+    "img": [
+     {
+      "file": "img9/p10_1_0.png",
+      "w": 1.378,
+      "h": 0.919
+     }
+    ],
+    "ans": "8",
+    "buggy": false,
+    "_pn": 9,
+    "h": 1.44
+   }
+  ]
+ },
+ {
+  "n": 6,
+  "level": 3,
+  "tasks": [
+   {
+    "page": 15,
+    "idx": 4,
+    "level": 3,
+    "title": "Wie viele Nullen...",
+    "paras": [
+     "...sind zum Anschreiben der Zahl 9 Zehntausendstel als Dezimalzahl notwendig?"
+    ],
+    "img": [
+     {
+      "file": "img9/p15_4_0.png",
+      "w": 1.378,
+      "h": 0.919
+     }
+    ],
+    "ans": "4",
+    "buggy": false,
+    "_pn": 14,
+    "h": 1.25
+   },
+   {
+    "page": 16,
+    "idx": 1,
+    "level": 3,
+    "title": "Drei Zahlen",
+    "paras": [
+     "Drei Zahlen ergeben zusammen 50.000. Wenn du die kleinste der drei Zahlen vervierfachst, erhältst du die größte der Zahlen, nämlich 31.716.",
+     "Wie heißt die mittlere Zahl?"
+    ],
+    "img": [
+     {
+      "file": "img9/p16_1_0.png",
+      "w": 1.378,
+      "h": 0.919
+     }
+    ],
+    "ans": "10.355",
+    "buggy": false,
+    "_pn": 15,
+    "h": 1.47
+   },
+   {
+    "page": 17,
+    "idx": 3,
+    "level": 3,
+    "title": "Andere Länder, andere Sitten...",
+    "paras": [
+     "Im angloamerikanischen Raum wird die Temperatur in Grad Fahrenheit gemessen. Für die Umrechnung von Grad Celsius (x) in Grad Fahrenheit (y) gilt die Formel:",
+     "y = 1,8x + 32",
+     "Mit welcher Formel kann man von Grad Fahrenheit in Grad Celsius umrechnen?",
+     "x = y : (1,8 - 32)",
+     "x = y : 1,8 - 32",
+     "x = y - 32 : 1,8",
+     "x = (y - 32) : 1,8"
+    ],
+    "img": [
+     {
+      "file": "img9/p17_3_0.png",
+      "w": 1.378,
+      "h": 0.919
+     }
+    ],
+    "ans": "x = (y - 32) : 1,8",
+    "buggy": false,
+    "_pn": 16,
+    "h": 2.35
+   },
+   {
+    "page": 17,
+    "idx": 4,
+    "level": 3,
+    "title": "Quadrat",
+    "paras": [
+     "Ein Quadrat hat 16 cm Seitenlänge.",
+     "Jede Seite wird um 4 cm verlängert.",
+     "Um wie viel % ändert sich der Flächeninhalt des Quadrats?"
+    ],
+    "img": [
+     {
+      "file": "img9/p17_4_0.png",
+      "w": 1.378,
+      "h": 1.372
+     }
+    ],
+    "ans": "56,25 %",
+    "buggy": false,
+    "_pn": 16,
+    "h": 1.51
+   }
+  ]
+ },
+ {
+  "n": 7,
+  "level": 3,
+  "tasks": [
+   {
+    "page": 14,
+    "idx": 1,
+    "level": 3,
+    "title": "Koordinaten",
+    "paras": [
+     "Welcher der folgenden Punkte liegt im 2. Quadranten?",
+     "A (2/-3)",
+     "B (1/5)",
+     "C (6/-2)",
+     "D (-2/1)"
+    ],
+    "img": [
+     {
+      "file": "img9/p14_1_0.png",
+      "w": 1.378,
+      "h": 0.919
+     }
+    ],
+    "ans": "D (-2/1)",
+    "buggy": false,
+    "_pn": 13,
+    "h": 1.35
+   },
+   {
+    "page": 15,
+    "idx": 2,
+    "level": 3,
+    "title": "Von Quadraten und Rechtecken",
+    "paras": [
+     "Wie viele der folgenden Aussagen sind richtig?",
+     "a) Wenn man die Seitenlänge eines Quadrates verdoppelt, verdoppelt sich auch der Flächeninhalt.",
+     "b) Wenn man die Länge und Breite eines Rechtecks verdoppelt, verdoppelt sich der Umfang.",
+     "c) Wenn man die Länge einer Seite verdoppelt, verdoppelt sich der Umfang des Rechtecks."
+    ],
+    "img": [
+     {
+      "file": "img9/p15_2_0.png",
+      "w": 1.378,
+      "h": 1.372
+     }
+    ],
+    "ans": "1",
+    "buggy": false,
+    "_pn": 14,
+    "h": 2.29
+   },
+   {
+    "page": 16,
+    "idx": 3,
+    "level": 3,
+    "title": "Körpergröße",
+    "paras": [
+     "Verena ist 1,3 m groß. Wäre sie um 35 cm kleiner, so wäre sie halb so groß wie ihr Vater.",
+     "Wie groß ist ihr Vater?"
+    ],
+    "img": [
+     {
+      "file": "img9/p16_3_0.png",
+      "w": 1.378,
+      "h": 0.919
+     }
+    ],
+    "ans": "1,90 m",
+    "buggy": false,
+    "_pn": 15,
+    "h": 1.47
+   },
+   {
+    "page": 17,
+    "idx": 2,
+    "level": 3,
+    "title": "D ermitteln",
+    "paras": [
+     "Die Summe jeder vollständigen Zeile und jeder Spalte ist gleich. Welcher Wert ergibt sich demnach für D?"
+    ],
+    "img": [
+     {
+      "file": "img9/p17_2_0.png",
+      "w": 2.756,
+      "h": 1.837
+     }
+    ],
+    "ans": "3",
+    "buggy": false,
+    "_pn": 16,
+    "h": 1.8
+   }
+  ]
+ },
+ {
+  "n": 8,
+  "level": 3,
+  "tasks": [
+   {
+    "page": 14,
+    "idx": 4,
+    "level": 3,
+    "title": "Quader zerschneiden...",
+    "paras": [
+     "Oben skizzierter Quader soll in möglichst wenige gleich große Würfel zerschnitten werden. Wie viele Würfel ergibt das?"
+    ],
+    "img": [
+     {
+      "file": "img9/p14_4_0.png",
+      "w": 2.756,
+      "h": 1.396
+     }
+    ],
+    "ans": "24",
+    "buggy": false,
+    "_pn": 13,
+    "h": 1.44
+   },
+   {
+    "page": 15,
+    "idx": 1,
+    "level": 3,
+    "title": "Dreiecksfläche",
+    "paras": [
+     "Welchen Flächeninhalt hat das Dreieck XYZ, wenn das Rechteck ABCD einen Flächeninhalt von 22 cm² hat?"
+    ],
+    "img": [
+     {
+      "file": "img9/p15_1_0.png",
+      "w": 2.756,
+      "h": 1.837
+     }
+    ],
+    "ans": "5,5 cm²",
+    "buggy": false,
+    "_pn": 14,
+    "h": 1.8
+   },
+   {
+    "page": 16,
+    "idx": 4,
+    "level": 3,
+    "title": "Zwei Quadrate",
+    "paras": [
+     "Von den beiden Quadraten werden Teile abgeschnitten. Welche verbliebene Fläche ist größer?",
+     "A und B sind gleich groß.",
+     "A ist um 16 cm² größer als B.",
+     "B ist um 16 cm² größer als A.",
+     "Eine der beiden ist um 4 cm² größer als die andere."
+    ],
+    "img": [
+     {
+      "file": "img9/p16_4_0.png",
+      "w": 2.756,
+      "h": 1.372
+     }
+    ],
+    "ans": "B ist um 16 cm² größer als A.",
+    "buggy": false,
+    "_pn": 15,
+    "h": 2.18
+   },
+   {
+    "page": 18,
+    "idx": 1,
+    "level": 3,
+    "title": "Wieviel g?",
+    "paras": [
+     "Von 3 kg eines Materials werden zwei Drittel entfernt. Vom Rest entfernt man zwei Fünftel, von der dann noch verbliebenen Menge drei Viertel.  Wieviel g des Materials bleiben übrig?"
+    ],
+    "img": [
+     {
+      "file": "img9/p18_1_0.png",
+      "w": 1.378,
+      "h": 0.919
+     }
+    ],
+    "ans": "zwischen 100 g und 200 g",
+    "buggy": false,
+    "_pn": 17,
+    "h": 1.44
+   }
+  ]
+ },
+ {
+  "n": 9,
+  "level": 4,
+  "tasks": [
+   {
+    "page": 19,
+    "idx": 3,
+    "level": 4,
+    "title": "Welcher Würfel...",
+    "paras": [
+     "...kann nicht aus dem abgebildeten Würfelnetz gefaltet werden?"
+    ],
+    "img": [
+     {
+      "file": "img9/p19_3_0.png",
+      "w": 2.756,
+      "h": 1.237
+     }
+    ],
+    "ans": "A",
+    "buggy": false,
+    "_pn": 18,
+    "h": 1.31
+   },
+   {
+    "page": 20,
+    "idx": 1,
+    "level": 4,
+    "title": "Von Quadraten...",
+    "paras": [
+     "Ein Rechteck wird wie in der Skizze abgebildet in 8 Quadrate unterteilt. Die Seitenlänge der roten Quadrate (A) ist 10 cm. Welchen Flächeninhalt hat das Rechteck?"
+    ],
+    "img": [
+     {
+      "file": "img9/p20_1_0.png",
+      "w": 2.756,
+      "h": 1.837
+     }
+    ],
+    "ans": "1020 cm²",
+    "buggy": false,
+    "_pn": 19,
+    "h": 1.8
+   },
+   {
+    "page": 20,
+    "idx": 2,
+    "level": 4,
+    "title": "Greifvogelschau",
+    "paras": [
+     "Für den Eintritt bei einer Greifvogelschau zahlt ein Erwachsener mit einem Kind 14 €. 2 Erwachsene mit 3 Kindern zahlen 33 €. Wie viel bezahlt 1 Erwachsener mit 4 Kindern?"
+    ],
+    "img": [
+     {
+      "file": "img9/p20_2_0.png",
+      "w": 1.378,
+      "h": 0.919
+     }
+    ],
+    "ans": "29 €",
+    "buggy": false,
+    "_pn": 19
+   },
+   {
+    "page": 21,
+    "idx": 3,
+    "level": 4,
+    "title": "Balkenwaage",
+    "paras": [
+     "Wie viele orangefarbene Kreise werden benötigt, um einen roten Kreis aufzuwiegen."
+    ],
+    "img": [
+     {
+      "file": "img9/p21_3_0.png",
+      "w": 2.756,
+      "h": 1.837
+     }
+    ],
+    "ans": "6",
+    "buggy": false,
+    "_pn": 20,
+    "h": 1.8
+   }
+  ]
+ },
+ {
+  "n": 10,
+  "level": 4,
+  "tasks": [
+   {
+    "page": 19,
+    "idx": 1,
+    "level": 4,
+    "title": "Entfernung vom Ursprung",
+    "paras": [
+     "Welcher Punkt liegt am nähesten beim Ursprung?",
+     "A",
+     "B",
+     "C",
+     "Es sind mehrere Punkte gleich weit entfernt."
+    ],
+    "img": [
+     {
+      "file": "img9/p19_1_0.png",
+      "w": 2.756,
+      "h": 1.837
+     }
+    ],
+    "ans": "C",
+    "buggy": false,
+    "_pn": 18,
+    "h": 1.81
+   },
+   {
+    "page": 21,
+    "idx": 1,
+    "level": 4,
+    "title": "Wie viele Sprünge?",
+    "paras": [
+     "Bei der Heuschrecken-Weltmeisterschaft soll mit möglichst wenigen Sprüngen eine Distanz von 7 m und 80 cm zurückgelegt werden. Flip schafft beim ersten Sprung 4 Meter, beim zweiten 2 Meter, beim dritten 1 Meter und so fort. Jeder Sprung geht halb so weit wie der vorige. Nach wie vielen Sprüngen hat Flip die 7 m 80 cm absolviert?",
+     "6",
+     "12",
+     "24",
+     "Nie"
+    ],
+    "img": [
+     {
+      "file": "img9/p21_1_0.png",
+      "w": 1.378,
+      "h": 0.919
+     }
+    ],
+    "ans": "6",
+    "buggy": false,
+    "_pn": 20,
+    "h": 2.1
+   },
+   {
+    "page": 22,
+    "idx": 1,
+    "level": 4,
+    "title": "Wettläufe",
+    "paras": [
+     "Nathalie schlägt Peter bei einem Rennen über 100 m um 4 Meter. Peter wiederum schlägt Vanessa auf 100 m um 5 Meter. Mit wie vielen Metern Vorsprung gewinnt Nathalie ein 100m-Rennen gegen Vanessa?"
+    ],
+    "img": [
+     {
+      "file": "img9/p22_1_0.png",
+      "w": 1.378,
+      "h": 0.919
+     }
+    ],
+    "ans": "8,8 m",
+    "buggy": false,
+    "_pn": 21,
+    "h": 1.44
+   },
+   {
+    "page": 22,
+    "idx": 3,
+    "level": 4,
+    "title": "Aufstellung von Verkehrszeichen",
+    "paras": [
+     "Zur Aufstellung von Verkehrszeichen brauchen 12 ArbeiterInnen 96 Stunden. Nach 36 Arbeitsstunden werden 3 zusätzliche ArbeiterInnen eingesetzt, die den anderen helfen. In welcher Gesamtzeit wird die Arbeit durchgeführt?"
+    ],
+    "img": [
+     {
+      "file": "img9/p22_3_0.png",
+      "w": 1.378,
+      "h": 0.919
+     }
+    ],
+    "ans": "84 Stunden",
+    "buggy": false,
+    "_pn": 21,
+    "h": 1.62
+   }
+  ]
+ }
+]
