@@ -114,8 +114,9 @@ function solutions(){
   newPage();
   SH.forEach(sh=>{
     const items=sh.tasks.map((t,i)=>({n:i+1,title:t.title,ans:t.ans}));
-    const hs=items.map(it=>Math.max(1,Math.ceil((it.title.length+it.ans.length+4)/((colW-0.4)/0.07)))*0.2);
-    const h=0.55+hs.reduce((a,b)=>a+b,0)+0.1;
+    const cpl=45;
+    const nl=items.map(it=>Math.max(1,Math.ceil((it.n+'  '+it.title+': '+it.ans).length/cpl)));
+    const h=0.55+nl.reduce((a,b)=>a+b,0)*0.19+0.12;
     if(y+h>bottom){if(col===0){col=1;y=top;}else newPage();}
     if(y+h>bottom)newPage();
     const x=X0+col*(colW+0.17);const {s,T}=page;
@@ -124,8 +125,8 @@ function solutions(){
     T('Arbeitsblatt '+sh.n,x+0.62,y+0.1,1.8,0.38,{fontSize:11,bold:true,color:INK,valign:'middle'});
     s.addShape(S.roundRect,{x:x+colW-1.0,y:y+0.15,w:0.88,h:0.28,rectRadius:0.08,fill:{color:CHIP},line:{color:LINE,width:1}});
     T('Level '+sh.level,x+colW-1.0,y+0.15,0.88,0.28,{fontSize:9,bold:true,color:DEEP,align:'center',valign:'middle'});
-    let yy=y+0.55;
-    items.forEach((it,k)=>{T([{text:it.n+'  '+it.title+': ',options:{color:GRAY}},{text:it.ans,options:{bold:true,color:GREEN}}],x+0.15,yy,colW-0.3,hs[k],{fontSize:9.5,valign:'top'});yy+=hs[k];});
+    const runs=[];items.forEach((it,k)=>{runs.push({text:it.n+'  '+it.title+': ',options:{color:GRAY}});runs.push({text:it.ans,options:{bold:true,color:GREEN,breakLine:k<items.length-1}});});
+    T(runs,x+0.15,y+0.58,colW-0.3,h-0.65,{fontSize:9.5,valign:'top',lineSpacingMultiple:1.0});
     y+=h+0.12;});
 }
 divider();SH.forEach(sheet);solutions();
