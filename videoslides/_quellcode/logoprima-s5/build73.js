@@ -3,9 +3,9 @@ const { applyTheme } = require('/root/.claude/skills/synced/a0fffd8f-fbe1-4e7d-a
 const fs=require('fs');
 const SH=JSON.parse(fs.readFileSync(__dirname+'/s5/sheets.json','utf8'));
 const SS=5;
-const BG='FFFFFF',INK='0B1E3A',GREEN='14459A',NEON='BCD6F5',DEEP='0F2A52',GRAY='4A5F7A',LINE='8DBBF2',CHIP='E3EEFB',W='FFFFFF';
+const BG='FFFFFF',INK='2D1B0E',GREEN='C2571A',NEON='F6DF8C',DEEP='3A2616',GRAY='7A6A5A',LINE='EBC58A',CHIP='FCE9C4',W='FFFFFF';
 const FONT='Poppins';
-const THEME={name:'Mathebox Blau',headFontFace:FONT,bodyFontFace:FONT,colors:{dk1:INK,lt1:W,dk2:DEEP,lt2:BG,accent1:NEON,accent2:GREEN,accent3:CHIP,accent4:GRAY,accent5:'FF7A45',accent6:LINE,hlink:GREEN,folHlink:GRAY}};
+const THEME={name:'logoprima',headFontFace:FONT,bodyFontFace:FONT,colors:{dk1:INK,lt1:W,dk2:DEEP,lt2:BG,accent1:NEON,accent2:GREEN,accent3:CHIP,accent4:GRAY,accent5:'DA702F',accent6:LINE,hlink:GREEN,folHlink:GRAY}};
 const pres=new pptxgen();pres.defineLayout({name:'A4',width:8.27,height:11.69});pres.layout='A4';
 pres.title='logoprima+ Schulstufe 5';pres.author='Cleverbox';
 const S=pres.ShapeType;const Wd=8.27,H=11.69,X0=0.6,CW=7.07;
@@ -65,7 +65,7 @@ function levelBadge(s,T,lv,x,y){
   T('von 4',x+1.4,y+0.4,0.95,0.17,{fontSize:7,color:GRAY});}
 function sheet(sh){
   const {s,T}=base(W);hdr(s,T);
-  headline(T,'Arbeitsblatt · Mathematik',[['Schulstufe '+SS+' · ',false],['Blatt '+sh.n,true]]);
+  headline(T,'logoprima+ · Mathematik',[['Arbeitsblatt ',false],[String(sh.n),true]]);
   levelBadge(s,T,sh.level,X0+CW-2.35,1.5);
   T('Name:',X0,2.42,0.8,0.3,{fontSize:11,bold:true,color:GRAY,valign:'middle'});s.addShape(S.line,{x:X0+0.8,y:2.68,w:3.0,h:0,line:{color:LINE,width:1.25,dashType:'sysDot'}});
   T('Datum:',X0+4.1,2.42,0.9,0.3,{fontSize:11,bold:true,color:GRAY,valign:'middle'});s.addShape(S.line,{x:X0+5.0,y:2.68,w:2.07,h:0,line:{color:LINE,width:1.25,dashType:'sysDot'}});
