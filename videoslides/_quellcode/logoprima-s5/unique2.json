@@ -1,0 +1,1278 @@
+[
+ {
+  "page": 1,
+  "idx": 1,
+  "level": 1,
+  "title": "Flugzeuge",
+  "paras": [
+   "Armin kommt vom Spielen nach Hause und erzählt er habe einige Flugzeuge am Himmel gesehen. Die Mutter möchte wissen, wie viele Flugzeuge er gesehen hat. Armin antwortet:",
+   "\"Ein Flugzeug flog vor zwei Flugzeugen, ein Flugzeug flog hinter zwei Flugzeugen und ein Flugzeug flog zwischen zwei Flugzeugen.\"",
+   "Wie viele Flugzeuge hat Armin gesehen?"
+  ],
+  "img": [
+   {
+    "file": "img/p01_1_0.png",
+    "w": 1.378,
+    "h": 0.919
+   }
+  ],
+  "ans": "3"
+ },
+ {
+  "page": 1,
+  "idx": 2,
+  "level": 1,
+  "title": "Die Sockenlade",
+  "paras": [
+   "Armin hat in seiner Lade 8 schwarze, 4 weiße und 6 blaue Socken. Wie viele Socken muss er mit verbundenen Augen mindestens herausnehmen, damit er sicher ein Paar gleicher Farbe in Händen hält?"
+  ],
+  "img": [
+   {
+    "file": "img/p01_2_0.png",
+    "w": 1.378,
+    "h": 0.695
+   }
+  ],
+  "ans": "4"
+ },
+ {
+  "page": 1,
+  "idx": 3,
+  "level": 1,
+  "title": "Maße",
+  "paras": [
+   "Welche der folgenden Umwandlungen ist falsch?",
+   "7 m 5 cm = 705 cm",
+   "25 dag = 250 g",
+   "5 h = 300 min",
+   "670 dm² = 67 cm²"
+  ],
+  "img": [
+   {
+    "file": "img/p01_3_0.png",
+    "w": 1.378,
+    "h": 0.919
+   }
+  ],
+  "ans": "670 dm² = 67 cm²"
+ },
+ {
+  "page": 1,
+  "idx": 4,
+  "level": 1,
+  "title": "Buntstifte",
+  "paras": [
+   "Ein Buntstift kostet 49 c.",
+   "Wie viel muss man ungefähr für 8 Stifte bezahlen?",
+   "ca. 3 €",
+   "ca. 4 €",
+   "ca. 30 €",
+   "ca. 40 €"
+  ],
+  "img": [
+   {
+    "file": "img/p01_4_0.png",
+    "w": 1.378,
+    "h": 1.028
+   }
+  ],
+  "ans": "ca. 4 €"
+ },
+ {
+  "page": 2,
+  "idx": 1,
+  "level": 1,
+  "title": "Liftpreise",
+  "paras": [
+   "Ein Erwachsener und zwei Kinder wollen von 9 bis 12 Uhr Schifahren.",
+   "Welche Variante kommt am günstigsten?",
+   "Eine Tageskarte für jeden.",
+   "Eine 3-Stunden-Karte für jeden.",
+   "Eine Tageskarte für den Erwachsenen und eine 3-Stunden-Karte für jedes Kind.",
+   "Es spielt keine Rolle – alles ist preislich gleich."
+  ],
+  "img": [
+   {
+    "file": "img/p02_1_0.png",
+    "w": 2.756,
+    "h": 1.837
+   }
+  ],
+  "ans": "Eine 3-Stunden-Karte für jeden."
+ },
+ {
+  "page": 2,
+  "idx": 3,
+  "level": 1,
+  "title": "Körper im Alltag",
+  "paras": [
+   "Für welchen mathematischen Körper ist hier kein praktisches Beispiel angeführt:",
+   "Zündholzschachtel, Münze und Eistüte?",
+   "Zylinder",
+   "Quader",
+   "Kegel",
+   "Kugel"
+  ],
+  "img": [
+   {
+    "file": "img/p02_3_0.png",
+    "w": 1.378,
+    "h": 0.919
+   }
+  ],
+  "ans": "Kugel"
+ },
+ {
+  "page": 2,
+  "idx": 4,
+  "level": 1,
+  "title": "Passende Flächen",
+  "paras": [
+   "Welche der folgenden Figuren ergeben durch Schieben und Drehen (ohne Kippen!) gemeinsam ein Rechteck?",
+   "A und C",
+   "A und D",
+   "B und C",
+   "B und D"
+  ],
+  "img": [
+   {
+    "file": "img/p02_4_0.png",
+    "w": 2.756,
+    "h": 1.396
+   }
+  ],
+  "ans": "A und D"
+ },
+ {
+  "page": 3,
+  "idx": 1,
+  "level": 1,
+  "title": "Bauplan für die Würfelburg",
+  "paras": [
+   "Welcher Körper wurde nach dem abgebildeten Bauplan errichtet?",
+   "(Achtung, er kann auch gedreht worden sein!)",
+   "A",
+   "B",
+   "C",
+   "Keiner von den dreien."
+  ],
+  "img": [
+   {
+    "file": "img/p03_1_0.png",
+    "w": 2.756,
+    "h": 1.837
+   }
+  ],
+  "ans": "B"
+ },
+ {
+  "page": 3,
+  "idx": 2,
+  "level": 1,
+  "title": "Hafeneinfahrt von Lindau",
+  "paras": [
+   "Der bayerische Löwe in der Hafeneinfahrt von Lindau wurde 1856 errichtet, ist - ohne Sockel - 6 Meter hoch und wiegt 70 Tonnen. Aufgrund dieser Daten und des Bildes kann man ungefähr abschätzen, wie hoch der Leuchtturm ist:",
+   "3 Meter",
+   "9 Meter",
+   "33 Meter",
+   "99 Meter"
+  ],
+  "img": [
+   {
+    "file": "img/p03_2_0.png",
+    "w": 2.756,
+    "h": 1.837
+   }
+  ],
+  "ans": "33 Meter"
+ },
+ {
+  "page": 3,
+  "idx": 3,
+  "level": 1,
+  "title": "Welche Zahl?",
+  "paras": [
+   "Welche Zahl gehört in das grüne Kästchen?"
+  ],
+  "img": [
+   {
+    "file": "img/p03_3_0.png",
+    "w": 2.756,
+    "h": 1.837
+   }
+  ],
+  "ans": "275"
+ },
+ {
+  "page": 3,
+  "idx": 4,
+  "level": 1,
+  "title": "Wie schwer ist der Laptop?",
+  "paras": [
+   "Bill fragt seine vier Freunde: „Wie schwer schätzt ihr einen Laptop?“",
+   "Anna: „Ich schätze 640 g!“",
+   "Tim: „Ich schätze 250 dag!“",
+   "Lena: „ Ich schätze 17 dag 8 g!“",
+   "Lara: „ Ich schätze 20 kg 70 g!“",
+   "Welcher der Werte ist realistisch?"
+  ],
+  "img": [
+   {
+    "file": "img/p03_4_0.png",
+    "w": 1.378,
+    "h": 0.919
+   }
+  ],
+  "ans": "Tim"
+ },
+ {
+  "page": 4,
+  "idx": 1,
+  "level": 1,
+  "title": "Der Schilift",
+  "paras": [
+   "Das Rad im Bild (Umlenkseilscheibe) hat einen Umfang von 50 dm. Wie viele Umdrehungen muss es ungefähr machen, um einen Schifahrer 50 m weit zu befördern?"
+  ],
+  "img": [
+   {
+    "file": "img/p04_1_0.png",
+    "w": 1.378,
+    "h": 0.919
+   }
+  ],
+  "ans": "10"
+ },
+ {
+  "page": 4,
+  "idx": 3,
+  "level": 1,
+  "title": "Gerundet",
+  "paras": [
+   "Welche der Zahlen ergibt gerundet nicht die Zahl 43.000?",
+   "43.460",
+   "42.678",
+   "43.587",
+   "42.502"
+  ],
+  "img": [
+   {
+    "file": "img/p04_3_0.png",
+    "w": 1.378,
+    "h": 0.919
+   }
+  ],
+  "ans": "43.587"
+ },
+ {
+  "page": 4,
+  "idx": 4,
+  "level": 1,
+  "title": "Welche Zahl?",
+  "paras": [
+   "Welche Zahl gehört in das grüne Kästchen?"
+  ],
+  "img": [
+   {
+    "file": "img/p04_4_0.png",
+    "w": 2.756,
+    "h": 1.837
+   }
+  ],
+  "ans": "263"
+ },
+ {
+  "page": 5,
+  "idx": 1,
+  "level": 2,
+  "title": "Von Springfröschen",
+  "paras": [
+   "Bei den Kaulquappen des Springfrosches (Bild) ist der Schwanz ca. doppelt so lang wie der Rumpf. Wie lang ist ganze Kaulquappe, wenn der Schwanz 4 cm misst?",
+   "60 cm",
+   "6 cm",
+   "80 cm",
+   "8 cm"
+  ],
+  "img": [
+   {
+    "file": "img/p05_1_0.png",
+    "w": 1.378,
+    "h": 0.919
+   }
+  ],
+  "ans": "6 cm"
+ },
+ {
+  "page": 5,
+  "idx": 2,
+  "level": 2,
+  "title": "Wie weit...?",
+  "paras": [
+   "Verena geht zuerst 50 m nach rechts, dann 50 m nach vorne und dann 50 m nach links. Wie weit ist sie vom ursprünglichen Punkt entfernt?"
+  ],
+  "img": [
+   {
+    "file": "img/p05_2_0.png",
+    "w": 1.378,
+    "h": 0.919
+   }
+  ],
+  "ans": "50 m"
+ },
+ {
+  "page": 5,
+  "idx": 3,
+  "level": 2,
+  "title": "Das mysteriöse Quadrat...",
+  "paras": [
+   "Ein Rechteck hat eine Länge von 12 cm und eine Breite von 6 cm. Welche Seitenlänge hat ein Quadrat, das den gleichen Umfang hat?"
+  ],
+  "img": [
+   {
+    "file": "img/p05_3_0.png",
+    "w": 1.378,
+    "h": 1.372
+   }
+  ],
+  "ans": "9 cm"
+ },
+ {
+  "page": 5,
+  "idx": 4,
+  "level": 2,
+  "title": "Hausübung",
+  "paras": [
+   "Corinna und Stefan machen die Mathematik-Hausübung.",
+   "Corinna ist die schnellere Rechnerin und ist um 10 Minuten früher fertig. Nachdem auch Stefan fertig ist, sagt Corinna: \"Zusammen haben wir 50 Minuten gebraucht.\"",
+   "Wie lange hat Stefan gebraucht?"
+  ],
+  "img": [
+   {
+    "file": "img/p05_4_0.png",
+    "w": 1.378,
+    "h": 0.919
+   }
+  ],
+  "ans": "30 Minuten"
+ },
+ {
+  "page": 6,
+  "idx": 1,
+  "level": 2,
+  "title": "Logische Reihe...",
+  "paras": [
+   "Wie lautet die nächste Zahl:",
+   "2, 5, 11, 23, ____"
+  ],
+  "img": [
+   {
+    "file": "img/p06_1_0.png",
+    "w": 1.378,
+    "h": 0.919
+   }
+  ],
+  "ans": "47"
+ },
+ {
+  "page": 6,
+  "idx": 2,
+  "level": 2,
+  "title": "Rechteck",
+  "paras": [
+   "Welche der folgenden Aussagen ist sicher richtig?",
+   "A besitzt einen kleineren Flächeninhalt als B.",
+   "A und B haben den gleichen Umfang.",
+   "A und B haben den gleichen Flächeninhalt.",
+   "A besitzt einen größeren Umfang als B."
+  ],
+  "img": [
+   {
+    "file": "img/p06_2_0.png",
+    "w": 2.756,
+    "h": 1.421
+   }
+  ],
+  "ans": "A und B haben den gleichen Umfang."
+ },
+ {
+  "page": 6,
+  "idx": 3,
+  "level": 2,
+  "title": "Eier legen....",
+  "paras": [
+   "Herr Birnstingl hat zwölf Hühner. Sechs Hühner legen jeden Tag ein Ei, die anderen legen jeden zweiten Tag ein Ei. Wie viele Eier legen Herrn Birnstingls Hühner in 4 Tagen?"
+  ],
+  "img": [
+   {
+    "file": "img/p06_3_0.png",
+    "w": 1.378,
+    "h": 0.919
+   }
+  ],
+  "ans": "36"
+ },
+ {
+  "page": 6,
+  "idx": 4,
+  "level": 2,
+  "title": "Welcher Buchstabe...?",
+  "paras": [
+   "Welcher Buchstabe folgt als nächster?",
+   "M - D - M - D - F - ..."
+  ],
+  "img": [
+   {
+    "file": "img/p06_4_0.png",
+    "w": 1.378,
+    "h": 0.919
+   }
+  ],
+  "ans": "S"
+ },
+ {
+  "page": 7,
+  "idx": 1,
+  "level": 2,
+  "title": "Ein Quadrat",
+  "paras": [
+   "Ein Quadat hat eine Seitenlänge von 99 mm. Welche Größe kommt dem Flächeninhalt am nächsten?",
+   "1 mm²",
+   "1 cm²",
+   "1 dm²",
+   "1 m²"
+  ],
+  "img": [
+   {
+    "file": "img/p07_1_0.png",
+    "w": 1.378,
+    "h": 1.372
+   }
+  ],
+  "ans": "1 dm²"
+ },
+ {
+  "page": 7,
+  "idx": 2,
+  "level": 2,
+  "title": "Vierecke",
+  "paras": [
+   "Welche der folgenden Aussagen ist falsch?",
+   "Alle Quadrate sind auch Vierecke.",
+   "Alle Quadrate sind auch Rechtecke.",
+   "Alle Rechtecke sind auch Vierecke.",
+   "Alle Rechtecke sind auch Quadrate."
+  ],
+  "img": [
+   {
+    "file": "img/p07_2_0.png",
+    "w": 1.378,
+    "h": 1.372
+   }
+  ],
+  "ans": "Alle Rechtecke sind auch Quadrate."
+ },
+ {
+  "page": 7,
+  "idx": 4,
+  "level": 2,
+  "title": "Die Schnur",
+  "paras": [
+   "Nina hat eine 90 cm lange Schnur. Sie schneidet sie in 4 Teile. Das längste Stück ist genauso lang wie die anderen 3 Teile zusammen. Wie lang ist das längste Stück?",
+   "Das kann man mit diesen Angaben nicht eindeutig sagen.",
+   "30 cm",
+   "45 cm",
+   "60 cm"
+  ],
+  "img": [
+   {
+    "file": "img/p07_4_0.png",
+    "w": 1.378,
+    "h": 0.919
+   }
+  ],
+  "ans": "45 cm"
+ },
+ {
+  "page": 8,
+  "idx": 1,
+  "level": 2,
+  "title": "Fehlende Puzzlesteine...",
+  "paras": [
+   "Welche drei Puzzlesteine brauchst du, um auf ein Quadrat zur ergänzen?",
+   "A, B und C",
+   "A, B und D",
+   "A, C und D",
+   "B, C und D"
+  ],
+  "img": [
+   {
+    "file": "img/p08_1_0.png",
+    "w": 2.756,
+    "h": 1.464
+   }
+  ],
+  "ans": "B, C und D"
+ },
+ {
+  "page": 8,
+  "idx": 2,
+  "level": 2,
+  "title": "Gleichungen",
+  "paras": [
+   "Eine der unten angeführten Gleichungen lässt sich aus folgender Darstellung ableiten! Welche?",
+   "c - a = d - a",
+   "d - c = a",
+   "d – c : 2 = a",
+   "c + a = d - a"
+  ],
+  "img": [
+   {
+    "file": "img/p08_2_0.png",
+    "w": 2.756,
+    "h": 1.249
+   }
+  ],
+  "ans": "c + a = d - a"
+ },
+ {
+  "page": 8,
+  "idx": 3,
+  "level": 2,
+  "title": "Das mysteriöse Quadrat...",
+  "paras": [
+   "Ein Rechteck hat eine Länge von 15 cm und eine Breite von 5 cm. Welche Seitenlänge hat ein Quadrat, das den gleichen Umfang hat?"
+  ],
+  "img": [
+   {
+    "file": "img/p08_3_0.png",
+    "w": 1.378,
+    "h": 1.372
+   }
+  ],
+  "ans": "10 cm"
+ },
+ {
+  "page": 8,
+  "idx": 4,
+  "level": 2,
+  "title": "Mit zwei Würfeln...",
+  "paras": [
+   "Bei einem Spiel wird mit zwei Würfeln gewürfelt und die Augenzahlen werden addiert.",
+   "Welche der folgenden Zahlen wird (auf lange Sicht) am häufigsten kommen?",
+   "2",
+   "3",
+   "7",
+   "12"
+  ],
+  "img": [
+   {
+    "file": "img/p08_4_0.png",
+    "w": 1.378,
+    "h": 0.936
+   }
+  ],
+  "ans": "7"
+ },
+ {
+  "page": 9,
+  "idx": 1,
+  "level": 3,
+  "title": "x ermitteln...",
+  "paras": [
+   "Die Zahl im Kreis ist immer die Summe der beiden darunter stehenden Zahlen. Welchen Wert hat x?"
+  ],
+  "img": [
+   {
+    "file": "img/p09_1_0.png",
+    "w": 2.756,
+    "h": 1.488
+   }
+  ],
+  "ans": "11"
+ },
+ {
+  "page": 9,
+  "idx": 2,
+  "level": 3,
+  "title": "Auf einen Würfel ergänzen",
+  "paras": [
+   "Mit welchem der vier unteren Körper lässt sich der oben abgebildete Körper zu einem großen Würfel ergänzen?",
+   "A",
+   "B",
+   "C",
+   "D"
+  ],
+  "img": [
+   {
+    "file": "img/p09_2_0.png",
+    "w": 2.756,
+    "h": 1.476
+   }
+  ],
+  "ans": "B"
+ },
+ {
+  "page": 9,
+  "idx": 3,
+  "level": 3,
+  "title": "Schularbeit",
+  "paras": [
+   "In einer Klasse mit 25 Schülern und Schülerinnen erhalten 5 Kinder auf eine Mathematikschularbeit und 7 Kinder auf eine Deutschschularbeit die Note \"Sehr gut\". 2 dieser Kinder bekamen auf beide Schularbeiten die Note \"Sehr gut\".",
+   "Wie viele Kinder bekamen weder in Deutsch noch in Mathematik ein \"Sehr gut\"?"
+  ],
+  "img": [
+   {
+    "file": "img/p09_3_0.png",
+    "w": 1.378,
+    "h": 0.919
+   }
+  ],
+  "ans": "15 Schüler/innen"
+ },
+ {
+  "page": 9,
+  "idx": 4,
+  "level": 3,
+  "title": "Flächenvergleich",
+  "paras": [
+   "Welche Aussage über die beiden Figuren ist wahr?",
+   "A hat den größeren Umfang und den größeren Flächeninhalt.",
+   "A hat den größeren Umfang und den kleineren Flächeninhalt.",
+   "A hat den kleineren Umfang und den größeren Flächeninhalt.",
+   "A hat den kleineren Umfang und den kleineren Flächeninhalt."
+  ],
+  "img": [
+   {
+    "file": "img/p09_4_0.png",
+    "w": 2.756,
+    "h": 1.237
+   }
+  ],
+  "ans": "A hat den größeren Umfang und den kleineren Flächeninhalt."
+ },
+ {
+  "page": 10,
+  "idx": 1,
+  "level": 3,
+  "title": "Das mysteriöse Rechteck",
+  "paras": [
+   "Ein Rechteck mit ganzzahligen Seitenlängen hat einen Flächeninhalt von 24 cm². Welchen Umfang kann das Rechteck nicht haben?",
+   "20 cm",
+   "22 cm",
+   "28 cm",
+   "36 cm"
+  ],
+  "img": [
+   {
+    "file": "img/p10_1_0.png",
+    "w": 1.378,
+    "h": 0.867
+   }
+  ],
+  "ans": "36 cm"
+ },
+ {
+  "page": 10,
+  "idx": 2,
+  "level": 3,
+  "title": "Viele Scheiben",
+  "paras": [
+   "Wie viele Scheiben sieht man beim Buchstaben F?"
+  ],
+  "img": [
+   {
+    "file": "img/p10_2_0.png",
+    "w": 2.756,
+    "h": 1.433
+   }
+  ],
+  "ans": "21"
+ },
+ {
+  "page": 10,
+  "idx": 3,
+  "level": 3,
+  "title": "Welcher Buchstabe...?",
+  "paras": [
+   "Welcher Buchstabe folgt als nächster?",
+   "E - Z - D - V - ..."
+  ],
+  "img": [
+   {
+    "file": "img/p10_3_0.png",
+    "w": 1.378,
+    "h": 0.919
+   }
+  ],
+  "ans": "F"
+ },
+ {
+  "page": 11,
+  "idx": 2,
+  "level": 3,
+  "title": "Additionen",
+  "paras": [
+   "Werner und Paul haben beide im Februar Geburtstag. Am 5. Dezember 2013 schreiben sie folgende Zahlen untereinander:",
+   "Das Alter von Paul, das Alter von Werner, das Geburtsjahr von Paul und das Geburtsjahr von Werner. Anschließend addieren sie die vier Zahlen. Wie lautet das Ergebnis?",
+   "4026",
+   "4028",
+   "4030",
+   "Das kann man nicht sagen."
+  ],
+  "img": [
+   {
+    "file": "img/p11_2_0.png",
+    "w": 1.378,
+    "h": 0.919
+   }
+  ],
+  "ans": "4026"
+ },
+ {
+  "page": 11,
+  "idx": 3,
+  "level": 3,
+  "title": "Drei Seiten...",
+  "paras": [
+   "Konrad addiert drei Seiten eines Rechtecks und kommt auf 28 cm. Verena addiert auch drei Seiten des gleichen Rechtecks und kommt auf 32 cm. Welchen Umfang hat das Rechteck?"
+  ],
+  "img": [
+   {
+    "file": "img/p11_3_0.png",
+    "w": 1.378,
+    "h": 0.919
+   }
+  ],
+  "ans": "40 cm"
+ },
+ {
+  "page": 11,
+  "idx": 4,
+  "level": 3,
+  "title": "824",
+  "paras": [
+   "Drei Kinder unterhalten sich über die Zahl 824. Anja sagt: \"Die Ziffernsumme ist 14\". Armin meint: \"Die Zahl ist gerade und die Einerziffer ist 4\". Alina überlegt: \"Alle Ziffern sind gerade\". Wer hat recht?",
+   "Anja und Armin",
+   "Anja und Alina",
+   "Alina und Armin",
+   "Alle 3"
+  ],
+  "img": [
+   {
+    "file": "img/p11_4_0.png",
+    "w": 1.378,
+    "h": 0.919
+   }
+  ],
+  "ans": "Alle 3"
+ },
+ {
+  "page": 12,
+  "idx": 1,
+  "level": 3,
+  "title": "Fünf Kinder",
+  "paras": [
+   "Familie Nowak hat fünf Kinder: Sie heißen Paul, Stefanie, Peter, Raphael und Sabine.",
+   "Peter und Raphael sind jünger als Stefanie. Paul ist älter als Sabine, aber jünger als Stefanie.",
+   "Raphael wiederum ist älter als Paul, und Peter ist jünger als Sabine. Bei welcher Antwort sind die Namen der Kinder alphabetisch geordnet?",
+   "Stefanie, Raphael, Paul, Sabine, Peter",
+   "Peter, Paul, Raphael, Sabine, Stefanie",
+   "Raphael, Paul, Peter, Sabine, Stefanie",
+   "Paul, Peter, Raphael, Sabine, Stefanie"
+  ],
+  "img": [
+   {
+    "file": "img/p12_1_0.png",
+    "w": 1.378,
+    "h": 0.919
+   }
+  ],
+  "ans": "Paul, Peter, Raphael, Sabine, Stefanie"
+ },
+ {
+  "page": 12,
+  "idx": 2,
+  "level": 3,
+  "title": "Bewegter Würfel",
+  "paras": [
+   "Der abgebildete Spielwürfel wird entlang der grünen Felder weitergekippt.",
+   "Welche Zahl ist oben, wenn er das orangefarbene Feld erreicht hat?"
+  ],
+  "img": [
+   {
+    "file": "img/p12_2_0.png",
+    "w": 2.756,
+    "h": 1.409
+   }
+  ],
+  "ans": "1"
+ },
+ {
+  "page": 12,
+  "idx": 3,
+  "level": 3,
+  "title": "Die fehlende Zahl",
+  "paras": [
+   "Welche Zahl fehlt im letzten Dreieck?"
+  ],
+  "img": [
+   {
+    "file": "img/p12_3_0.png",
+    "w": 2.756,
+    "h": 1.189
+   }
+  ],
+  "ans": "19"
+ },
+ {
+  "page": 12,
+  "idx": 4,
+  "level": 3,
+  "title": "Logische Reihe",
+  "paras": [
+   "1, 1, 2, 4, 6, 18, 21, 84, ____"
+  ],
+  "img": [
+   {
+    "file": "img/p12_4_0.png",
+    "w": 1.378,
+    "h": 0.919
+   }
+  ],
+  "ans": "88"
+ },
+ {
+  "page": 13,
+  "idx": 1,
+  "level": 3,
+  "title": "Unterschiedliche Ergebnisse",
+  "paras": [
+   "Du würfelst mit 2 gleichen Spielwürfeln.",
+   "Wie viele Möglichkeiten gibt es, die ein unterschiedliches Wurfergebnis zeigen?"
+  ],
+  "img": [
+   {
+    "file": "img/p13_1_0.png",
+    "w": 1.378,
+    "h": 0.936
+   }
+  ],
+  "ans": "21"
+ },
+ {
+  "page": 13,
+  "idx": 2,
+  "level": 3,
+  "title": "Drei Zahlen",
+  "paras": [
+   "Drei Zahlen ergeben zusammen 50.000. Wenn du die kleinste der drei Zahlen verdreifachst, erhältst du die größte der Zahlen, nämlich 29.154.",
+   "Wie heißt die mittlere Zahl?"
+  ],
+  "img": [
+   {
+    "file": "img/p13_2_0.png",
+    "w": 1.378,
+    "h": 0.919
+   }
+  ],
+  "ans": "11.128"
+ },
+ {
+  "page": 13,
+  "idx": 3,
+  "level": 3,
+  "title": "Welches folgt?",
+  "paras": [
+   "Vervollständige die angegebene Serie mit A, B, C oder D."
+  ],
+  "img": [
+   {
+    "file": "img/p13_3_0.png",
+    "w": 2.756,
+    "h": 1.837
+   }
+  ],
+  "ans": "D"
+ },
+ {
+  "page": 13,
+  "idx": 4,
+  "level": 3,
+  "title": "Welche Socke hat ein Loch?",
+  "paras": [
+   "Eine von den 14 Socken auf dem Bild hat auf der Unterseite ein Loch.",
+   "Das Produkt der Anzahl der Socken links und rechts von ihr ist um 12 kleiner als bei der Socke die um 3 Positionen weiter rechts ist.",
+   "Wie viele Socken sind links von der löchrigen?"
+  ],
+  "img": [
+   {
+    "file": "img/p13_4_0.png",
+    "w": 1.378,
+    "h": 0.695
+   }
+  ],
+  "ans": "3"
+ },
+ {
+  "page": 14,
+  "idx": 1,
+  "level": 4,
+  "title": "Die gedachte Zahl",
+  "paras": [
+   "Martin denkt sich eine Zahl, er addiert 4035 und subtrahiert von der Summe 3267. Als Ergebnis erhält er 2856. Wie lautet die gedachte Zahl?"
+  ],
+  "img": [
+   {
+    "file": "img/p14_1_0.png",
+    "w": 1.378,
+    "h": 0.919
+   }
+  ],
+  "ans": "2088"
+ },
+ {
+  "page": 14,
+  "idx": 2,
+  "level": 4,
+  "title": "Netz eines Spielwürfels",
+  "paras": [
+   "Bekanntlich ergeben die Augenzahlen gegenüber liegender (paralleler) Flächen addiert immer 7. Welche der abgebildeten Grafiken kann daher das Netz eines Spielwürfels darstellen?",
+   "Keine der beiden.",
+   "Die linke Grafik .",
+   "Die rechte Grafik.",
+   "Beide stellen ein korrektes Netz dar."
+  ],
+  "img": [
+   {
+    "file": "img/p14_2_0.png",
+    "w": 2.756,
+    "h": 1.292
+   }
+  ],
+  "ans": "Keine der beiden."
+ },
+ {
+  "page": 14,
+  "idx": 3,
+  "level": 4,
+  "title": "x ermitteln...",
+  "paras": [
+   "Die Zahl im Kreis ist immer die Summe der beiden darunter stehenden Zahlen. Welchen Wert hat x?"
+  ],
+  "img": [
+   {
+    "file": "img/p14_3_0.png",
+    "w": 2.756,
+    "h": 1.304
+   }
+  ],
+  "ans": "9"
+ },
+ {
+  "page": 14,
+  "idx": 4,
+  "level": 4,
+  "title": "Tonis Party",
+  "paras": [
+   "Toni hat gelbe, rote und blaue Zuckerl und er gibt am Ende seiner Party jedem Gast 3 Zuckerl.",
+   "Wie viele verschiedene Möglichkeiten gibt es für die Farbzusammenstellung?"
+  ],
+  "img": [
+   {
+    "file": "img/p14_4_0.png",
+    "w": 1.378,
+    "h": 0.919
+   }
+  ],
+  "ans": "10"
+ },
+ {
+  "page": 15,
+  "idx": 1,
+  "level": 4,
+  "title": "Schaltjahr",
+  "paras": [
+   "Wie viele Sekunden hat ein Schaltjahr?"
+  ],
+  "img": [
+   {
+    "file": "img/p15_1_0.png",
+    "w": 1.378,
+    "h": 0.919
+   }
+  ],
+  "ans": "31.622.400"
+ },
+ {
+  "page": 15,
+  "idx": 2,
+  "level": 4,
+  "title": "Zahlenfolge",
+  "paras": [
+   "Eine Zahlenfolge beginnt mit der Zahl 4. Jede Zahl ist um 1 größer als die Hälfte der nächsten Zahl. Wie lautet das 4. Glied der Folge?"
+  ],
+  "img": [
+   {
+    "file": "img/p15_2_0.png",
+    "w": 1.378,
+    "h": 0.919
+   }
+  ],
+  "ans": "18"
+ },
+ {
+  "page": 15,
+  "idx": 3,
+  "level": 4,
+  "title": "Zahlenfolge",
+  "paras": [
+   "Eine Zahlenfolge beginnt mit der Zahl 2. Jede Zahl ist um 1 größer als die Hälfte der nächsten Zahl. Wie lautet das 29. Glied der Folge?"
+  ],
+  "img": [
+   {
+    "file": "img/p15_3_0.png",
+    "w": 1.378,
+    "h": 0.919
+   }
+  ],
+  "ans": "2"
+ },
+ {
+  "page": 15,
+  "idx": 4,
+  "level": 4,
+  "title": "Im Zwergenland",
+  "paras": [
+   "Im Zwergenland gibt es besondere Maßeinheiten. 3 Knoffs entsprechen 2 Biffs, 1 Zaff entspricht zwei Knoffs und 3 Knoffs sind so viel wie 1 Schnuff. Wie viele Schnuffs sind 3 Zaffs?"
+  ],
+  "img": [
+   {
+    "file": "img/p15_4_0.png",
+    "w": 1.378,
+    "h": 0.919
+   }
+  ],
+  "ans": "2"
+ },
+ {
+  "page": 16,
+  "idx": 1,
+  "level": 4,
+  "title": "Wie viele Würfel...",
+  "paras": [
+   "Wie viele Würfel sind hier aufgebaut?"
+  ],
+  "img": [
+   {
+    "file": "img/p16_1_0.png",
+    "w": 2.756,
+    "h": 1.837
+   }
+  ],
+  "ans": "52"
+ },
+ {
+  "page": 16,
+  "idx": 2,
+  "level": 4,
+  "title": "3 Kinder",
+  "paras": [
+   "Verena und Markus wiegen zusammen 53 kg, Markus und Emilia wiegen zusammen 36 kg, während Verena und Emilia zusammen 45 kg wiegen. Wie schwer sind alle drei zusammen?"
+  ],
+  "img": [
+   {
+    "file": "img/p16_2_0.png",
+    "w": 1.378,
+    "h": 0.919
+   }
+  ],
+  "ans": "67 kg"
+ },
+ {
+  "page": 16,
+  "idx": 4,
+  "level": 4,
+  "title": "Wie viele Sprünge?",
+  "paras": [
+   "Bei der Heuschrecken-Weltmeisterschaft soll mit möglichst wenigen Sprüngen eine Distanz von 3 m 90 cm zurückgelegt werden. Flip schafft beim ersten Sprung 2 Meter, beim zweiten 1 Meter, beim dritten einen halben Meter und so fort. Jeder Sprung geht halb so weit wie der vorige. Nach wie vielen Sprüngen hat Flip die 3 m 90 cm Meter absolviert?",
+   "4",
+   "5",
+   "6",
+   "Nie"
+  ],
+  "img": [
+   {
+    "file": "img/p16_4_0.png",
+    "w": 1.378,
+    "h": 0.919
+   }
+  ],
+  "ans": "6"
+ },
+ {
+  "page": 17,
+  "idx": 1,
+  "level": 4,
+  "title": "Zahl gesucht!",
+  "paras": [
+   "Welche Zahl muss nach der Gesetzmäßigkeit der ersten Zeile in der 2. Zeile in die Klammer eingesetzt werden?",
+   "156 (291) 253",
+   "111 (...) 228"
+  ],
+  "img": [
+   {
+    "file": "img/p17_1_0.png",
+    "w": 1.378,
+    "h": 0.919
+   }
+  ],
+  "ans": "351"
+ },
+ {
+  "page": 17,
+  "idx": 2,
+  "level": 4,
+  "title": "Kombinierte Rechnungen",
+  "paras": [
+   "Eine vierstellige Zahl wird mit einer zweistelligen Zahl multipliziert.",
+   "Anschließend wird eine weitere vierstellige Zahl addiert. Welche Aussage ist richtig?",
+   "Das rote Quadrat steht für die Ziffer 7",
+   "Das gelbe Quadrat steht für die Ziffer 5",
+   "Das blaue Quadrat steht für die Ziffer 2",
+   "Das grüne Quadrat steht für die Ziffer 6"
+  ],
+  "img": [
+   {
+    "file": "img/p17_2_0.png",
+    "w": 2.756,
+    "h": 1.507
+   }
+  ],
+  "ans": "Das rote Quadrat steht für die Ziffer 7"
+ },
+ {
+  "page": 17,
+  "idx": 3,
+  "level": 4,
+  "title": "Der Schlepplift",
+  "paras": [
+   "8 Kinder freuen sich auf das Schifahren. Sie haben sich vorgenommen, dass jeder mit jedem einmal mit dem Schlepplift fährt. Wie viele verschiedene Paare werden gebildet?"
+  ],
+  "img": [
+   {
+    "file": "img/p17_3_0.png",
+    "w": 1.378,
+    "h": 0.919
+   }
+  ],
+  "ans": "28"
+ },
+ {
+  "page": 17,
+  "idx": 4,
+  "level": 4,
+  "title": "Urlaub",
+  "paras": [
+   "Herr und Frau Birnstingl machen mit ihren beiden Kindern Urlaub in einer Pension. Ein Erwachsener zahlt pro Tag 36 €, für ein Kind sind pro Tag 19 € zu bezahlen.",
+   "Wie viel muss Herr Birnstingl für 3 Wochen bezahlen, wenn er einen Preisnachlass von einem Zehntel bekommt."
+  ],
+  "img": [
+   {
+    "file": "img/p17_4_0.png",
+    "w": 1.378,
+    "h": 0.919
+   }
+  ],
+  "ans": "2079 €"
+ },
+ {
+  "page": 18,
+  "idx": 1,
+  "level": 4,
+  "title": "Wie viele Würfel...",
+  "paras": [
+   "Wie viele Würfel sind hier aufgebaut?"
+  ],
+  "img": [
+   {
+    "file": "img/p18_1_0.png",
+    "w": 2.756,
+    "h": 1.837
+   }
+  ],
+  "ans": "39"
+ },
+ {
+  "page": 18,
+  "idx": 2,
+  "level": 4,
+  "title": "Bakterien...",
+  "paras": [
+   "...vermehren sich durch Zellteilung: Aus einer Bakterie entstehen in einer Minute zwei der gleichen Größe. Nach 35 Minuten füllen die Bakterien den gesamten Behälter aus! Wie lange dauert es, bis die Bakterien die Hälfte des Behälters ausfüllen?"
+  ],
+  "img": [
+   {
+    "file": "img/p18_2_0.png",
+    "w": 1.378,
+    "h": 0.919
+   }
+  ],
+  "ans": "Keine der gegebenen Möglichkeiten"
+ },
+ {
+  "page": 19,
+  "idx": 1,
+  "level": 4,
+  "title": "Um die Ecke gerechnet...",
+  "paras": [
+   "Beim Spiel \"Um die Ecke rechnen\" gelten folgende Regeln: Man beginnt bei einer beliebigen Ecke (Zahl) und führt der Reihe nach die Rechnungen durch, bis man wieder bei der Ausgangszahl angelangt ist. Die Richtung kann man sich aussuchen. Dabei wird immer mit dem vorigen Ergebnis weiter gerechnet.",
+   "Welches ist das HÖCHSTE Ergebnis, das man mit dieser Angabe (Bild) erreichen kann?"
+  ],
+  "img": [
+   {
+    "file": "img/p19_1_0.png",
+    "w": 2.756,
+    "h": 1.494
+   }
+  ],
+  "ans": "60"
+ },
+ {
+  "page": 19,
+  "idx": 3,
+  "level": 4,
+  "title": "Greifvogelschau",
+  "paras": [
+   "Für den Eintritt bei einer Greifvogelschau zahlt ein Erwachsener mit einem Kind 14 €. 2 Erwachsene mit 3 Kindern zahlen 33 €. Wie viel bezahlt 1 Erwachsener mit 4 Kindern?"
+  ],
+  "img": [
+   {
+    "file": "img/p19_3_0.png",
+    "w": 1.378,
+    "h": 0.919
+   }
+  ],
+  "ans": "29 €"
+ },
+ {
+  "page": 19,
+  "idx": 4,
+  "level": 4,
+  "title": "Vertauschte Plättchen...",
+  "paras": [
+   "Armin legt gerne Zahlenplättchen nach einer zuvor ausgedachten Regel auf.",
+   "Hier siehst du zwei solche Reihen. Genauso gerne vertauscht seine kleine Schwester Alina heimlich Zahlenplättchen. Sie nimmt aber immer nur zwei Plättchen der gleichen Farbe beim Vertauschen. Welche Plättchen wurden hier vertauscht?",
+   "3 und 4",
+   "5 und 9",
+   "7 und 11",
+   "13 und 18"
+  ],
+  "img": [
+   {
+    "file": "img/p19_4_0.png",
+    "w": 2.756,
+    "h": 1.837
+   }
+  ],
+  "ans": "3 und 4"
+ }
+]
